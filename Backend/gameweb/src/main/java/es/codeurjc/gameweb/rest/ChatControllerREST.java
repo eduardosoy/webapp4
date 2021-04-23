@@ -38,7 +38,7 @@ public class ChatControllerREST {
     private ChatService chatService;
     @Autowired
     private UserService userService;
-    interface ChatDetail extends Chat.chatBasic,Game.gameBasico{}
+    interface ChatDetail extends Chat.chatBasic,Message.messageBasic,Game.gameBasico{}
     @JsonView(ChatDetail.class)
     @GetMapping("/")
     private Collection<Chat> getAllChats(){

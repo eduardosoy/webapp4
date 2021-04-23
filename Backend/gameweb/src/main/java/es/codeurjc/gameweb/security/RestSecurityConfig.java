@@ -52,14 +52,15 @@ public class RestSecurityConfig extends WebSecurityConfigurerAdapter {
 		http.authorizeRequests().antMatchers(HttpMethod.POST, "/api/profiles/**").hasAnyRole("USER","ADMIN");
 		http.authorizeRequests().antMatchers(HttpMethod.PUT, "/api/profiles/**").hasAnyRole("USER","ADMIN");
         http.authorizeRequests().antMatchers(HttpMethod.POST, "/api/games/").hasAnyRole("ADMIN");
-		http.authorizeRequests().antMatchers(HttpMethod.POST, "/api/games/{id}/image").hasAnyRole("ADMIN");
+		http.authorizeRequests().antMatchers(HttpMethod.POST, "/api/games/{id}/images").hasAnyRole("ADMIN");
 		http.authorizeRequests().antMatchers(HttpMethod.PUT, "/api/games/{id}").hasAnyRole("ADMIN");
         http.authorizeRequests().antMatchers(HttpMethod.PUT, "/api/games/**").hasAnyRole("USER","ADMIN");
-		http.authorizeRequests().antMatchers(HttpMethod.POST, "/api/games/{id}/score").hasAnyRole("USER","ADMIN");
-		http.authorizeRequests().antMatchers(HttpMethod.DELETE, "/api/game/**").hasAnyRole("ADMIN");	
+		http.authorizeRequests().antMatchers(HttpMethod.POST, "/api/games/{id}/scores").hasAnyRole("USER","ADMIN");
+		http.authorizeRequests().antMatchers(HttpMethod.DELETE, "/api/games/**").hasAnyRole("ADMIN");	
         http.authorizeRequests().antMatchers(HttpMethod.POST, "/api/posts/**").hasAnyRole("ADMIN");	
         http.authorizeRequests().antMatchers(HttpMethod.PUT, "/api/posts/**").hasAnyRole("ADMIN");
         http.authorizeRequests().antMatchers(HttpMethod.DELETE, "/api/posts/**").hasAnyRole("ADMIN");
+		http.authorizeRequests().antMatchers(HttpMethod.POST, "/api/chats/**").hasAnyRole("USER","ADMIN");
 		
 		// Other URLs can be accessed without authentication
 		http.authorizeRequests().anyRequest().permitAll();

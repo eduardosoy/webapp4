@@ -59,7 +59,8 @@ public class PostsControllerREST {
     }
     @JsonView(PostDetail.class)
     @GetMapping("/types")
-    public Collection<Post> getPostsOfType(@RequestParam String theType){
+    public Collection<Post> getPostsOfType(@RequestParam String theType,@RequestParam int gameID){
+        Game myGame=gamePostService.findById(gameID).get();
         PostType type=null;
         switch(theType){
             case "News":
@@ -73,7 +74,7 @@ public class PostsControllerREST {
                 break;
         }
         ArrayList<Post> aux=new ArrayList<Post>();
-        List<Post> thePosts=pService.findAll();
+        List<Post> thePosts=pService.findPostOfGame(myGame);
         for(Post p : thePosts){
             aux.add(p);
         }
@@ -107,10 +108,11 @@ public class PostsControllerREST {
     }
     @PutMapping("/{id}")
     public ResponseEntity<Post> editPost(@PathVariable long id, @RequestBody Post newPost) {      
-        Post p = pService.findById(id).get();      
+        Post p = pService.findById(id).get();         
         if (p != null) {
-            Game game=gamePostService.findById(p.getFromGameID()).get();
-            newPost.setFromGame(game);
+            Game g=gamePostService.findById(p.getFromGameID()).get(); 
+            newPost.setFromGameID(p.getFromGameID());
+            newPost.setFromGame(g);
             newPost.setId(id);
             pService.save(newPost);
  
