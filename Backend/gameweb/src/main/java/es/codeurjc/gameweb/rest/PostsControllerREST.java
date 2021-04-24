@@ -2,11 +2,16 @@ package es.codeurjc.gameweb.rest;
 import java.io.IOException;
 import java.net.MalformedURLException;
 import java.net.URI;
+import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
- 
+
+import org.hibernate.engine.jdbc.BlobProxy;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.core.io.InputStreamResource;
+import org.springframework.core.io.Resource;
+import org.springframework.http.HttpHeaders;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -46,15 +51,16 @@ public class PostsControllerREST {
         return pService.findAll();
     }
     @JsonView(PostDetail.class)
-    @GetMapping("/game")
+    @GetMapping("/games")
     public Collection<Post> getPostsOfGame(@RequestParam int gameID){
         Game myGame=gamePostService.findById(gameID).get();
         return pService.findPostOfGame(myGame);
  
     }
     @JsonView(PostDetail.class)
-    @GetMapping("/type")
-    public Collection<Post> getPostsOfType(@RequestParam String theType){
+    @GetMapping("/types")
+    public Collection<Post> getPostsOfType(@RequestParam String theType,@RequestParam int gameID){
+        Game myGame=gamePostService.findById(gameID).get();
         PostType type=null;
         switch(theType){
             case "News":
@@ -68,7 +74,7 @@ public class PostsControllerREST {
                 break;
         }
         ArrayList<Post> aux=new ArrayList<Post>();
-        List<Post> thePosts=pService.findAll();
+        List<Post> thePosts=pService.findPostOfGame(myGame);
         for(Post p : thePosts){
             aux.add(p);
         }
@@ -102,10 +108,11 @@ public class PostsControllerREST {
     }
     @PutMapping("/{id}")
     public ResponseEntity<Post> editPost(@PathVariable long id, @RequestBody Post newPost) {      
-        Post p = pService.findById(id).get();      
+        Post p = pService.findById(id).get();         
         if (p != null) {
-            Game game=gamePostService.findById(p.getFromGameID()).get();
-            newPost.setFromGame(game);
+            Game g=gamePostService.findById(p.getFromGameID()).get(); 
+            newPost.setFromGameID(p.getFromGameID());
+            newPost.setFromGame(g);
             newPost.setId(id);
             pService.save(newPost);
  
@@ -125,28 +132,34 @@ public class PostsControllerREST {
             return ResponseEntity.notFound().build();
         }
     }
-    @PostMapping("/{id}/image")
-    public ResponseEntity<Object> uploadImage(@PathVariable long id, @RequestParam MultipartFile imageFile) throws IOException {
+    @PostMapping("/{id}/images")
+	public ResponseEntity<Object> uploadImage(@PathVariable long id, @RequestParam MultipartFile imageFile) throws IOException, SQLException {
         Post post=pService.findById(id).get();
         if(post!=null){
             URI location = fromCurrentRequest().build().toUri();
  
             post.setImagePath(location.toString());
+            post.setImageFile(BlobProxy.generateProxy(imageFile.getInputStream(), imageFile.getSize()));
             pService.save(post);
  
-            imageService.saveImage(POSTS_FOLDER, post.getId(), imageFile);
+            //imageService.saveImage(POSTS_FOLDER, game.getId(), imageFile);
             return ResponseEntity.created(location).build();
         }
         else{
             return ResponseEntity.notFound().build();
         }
  
-    }
-    
-	@GetMapping("/{id}/image")
-	public ResponseEntity<Object> downloadImage(@PathVariable long id) throws MalformedURLException {
- 
-		return this.imageService.createResponseFromImage(POSTS_FOLDER, id);
+	}
+    @GetMapping("/{id}/images")
+	public ResponseEntity<Object> downloadImage(@PathVariable long id) throws MalformedURLException, SQLException {
+        Post post=pService.findById(id).get();
+        if(post!=null){
+            Resource file=new InputStreamResource(post.getImageFile().getBinaryStream());
+            return ResponseEntity.ok().header(HttpHeaders.CONTENT_TYPE, "image/jpeg").contentLength(post.getImageFile().length()).body(file);
+        }
+        else{
+            return ResponseEntity.notFound().build();
+        }
 	}
  
 }

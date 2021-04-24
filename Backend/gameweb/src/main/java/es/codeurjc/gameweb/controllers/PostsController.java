@@ -87,7 +87,8 @@ public class PostsController {
     @RequestMapping("/expandedPost/{id}")
     public String showExpandedPost(Model model, @PathVariable long id, HttpServletRequest request) {
         ArrayList<Object> gamesToShow;
-        model.addAttribute("theID", id);
+        Post post =pService.findById(id).get();
+        model.addAttribute("post", post);
         gamesToShow=algorithm.setSomeList(request);
         model.addAttribute("selectedList",gamesToShow.get(1));
         if (gamesToShow.get(0).equals(0))

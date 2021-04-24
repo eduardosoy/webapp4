@@ -4,6 +4,8 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 
+import com.fasterxml.jackson.annotation.JsonView;
+
 import org.hibernate.annotations.DynamicUpdate;
 import org.hibernate.annotations.GenericGenerator;
 
@@ -11,10 +13,13 @@ import org.hibernate.annotations.GenericGenerator;
 @Entity
 @DynamicUpdate
 public class Message {
+    public interface messageBasic{}
     @Id @GeneratedValue(generator="system-uuid")
     @GenericGenerator(name="system-uuid", strategy = "uuid")
     private String userId;
+    @JsonView(messageBasic.class)
     private String nameUser;
+    @JsonView(messageBasic.class)
     private String msgString;
     private boolean isMessageWriter;
     //private ArrayList<String> HTMLMessage;
