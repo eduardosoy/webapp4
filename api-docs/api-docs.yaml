@@ -213,7 +213,7 @@ paths:
           description: "The game doesnt exist"
         "403":
           description: "You aren't authorized to make this request, for make this request you need to be an admin"
-  /api/games/{gameId}/unsubmits:
+  /api/games/{gameId}/subscriptors:
     put:
       tags:
       - game-controller-rest
@@ -238,8 +238,7 @@ paths:
           description: "The game doesnt exist"
         "403":
           description: "You aren't authorized to make this request, you must be login for make it"
-  /api/games/{gameId}/submits:
-    put:
+    post:
       tags:
       - game-controller-rest
       operationId: uploadSubscriptions
@@ -315,7 +314,7 @@ paths:
           description: "The game with that id doesnt exist"
         "403":
           description: "You aren't authorized to make this request, you must be login for make it"
-  /api/profiles/{id}/image:
+  /api/profiles/{id}/images:
     get:
       tags:
       - profile-controller-rest
@@ -386,6 +385,8 @@ paths:
                 type: array
                 items:
                   $ref: '#/components/schemas/User_userBasico'
+        "404":
+          description: "The user doesnt exist"
     post:
       tags:
       - profile-controller-rest
@@ -407,16 +408,16 @@ paths:
                 $ref: '#/components/schemas/User_userBasico'
         "403":
           description: "You aren't authorized to make this request, you must be login for make it"
-  /api/posts/{id}/image:
+  /api/posts/{id}/images:
     get:
       tags:
-      - posts-controller-rest
+      - profile-controller-rest
       operationId: downloadImage_1
-      description: "This method let you get the image of a certain post"
+      description: "This method let you get the image of a certain user"
       parameters:
       - name: id
         in: path
-        description: "This is the id of the post you want to get the image of"
+        description: "This is the id of the user you want to get the image of"
         required: true
         schema:
           type: integer
@@ -429,16 +430,16 @@ paths:
               schema:
                 type: object
         "404":
-          description: "The post doesnt exist"
+          description: "The user doesnt exist"
     post:
       tags:
-      - posts-controller-rest
+      - profile-controller-rest
       operationId: uploadImage_1
-      description: "This method let you change the image of a certain post"
+      description: "This is the method that let you upload a image to a certain user"
       parameters:
       - name: id
         in: path
-        description: "This is the id of the post wich you want to chage the image of"
+        description: "This is the id of the user you want to change the image of"
         required: true
         schema:
           type: integer
@@ -452,7 +453,6 @@ paths:
                 imageFile:
                   type: string
                   format: binary
-        description: "This is the info of the image that you want to upload"
       responses:
         "200":
           description: OK
@@ -461,9 +461,9 @@ paths:
               schema:
                 type: object
         "404":
-          description: "The post doesnt exist"
+          description: "The user doesnt exist"
         "403":
-          description: "You aren't authorized to make this request, for make this request you need to be an admin"
+          description: "You aren't authorized to make this request, you must be login for make it"
   /api/posts/:
     get:
       tags:
@@ -500,7 +500,32 @@ paths:
                 $ref: '#/components/schemas/Post'
         "403":
           description: "You aren't authorized to make this request, for make this request you need to be an admin"
-  /api/games/{id}/score:
+  /api/games/{id}/scores:
+    get:
+      tags:
+      - game-controller-rest
+      operationId: getScores
+      description: "This method let the user get all the scores of a game"
+      parameters:
+      - name: id
+        in: path
+        description: "This is the id of the game you want to get the scores of"
+        required: true
+        schema:
+          type: integer
+          format: int64
+      responses:
+        "200":
+          description: OK
+          content:
+            '*/*':
+              schema:
+                type: object
+                additionalProperties:
+                  type: integer
+                  format: int32
+        "404":
+          description: "The game doesnt exist"
     post:
       tags:
       - game-controller-rest
@@ -532,7 +557,7 @@ paths:
           description: "The game doesnt exist"
         "403":
           description: "You aren't authorized to make this request, you must be login for make it"
-  /api/games/{id}/image:
+  /api/games/{id}/images:
     get:
       tags:
       - game-controller-rest
@@ -648,6 +673,7 @@ paths:
       tags:
       - login-controller-rest
       operationId: logOut
+      description: "This method let the user to logout of the page"
       responses:
         "200":
           description: OK
@@ -718,19 +744,26 @@ paths:
           description: "The user doesnt exist"
         "403":
           description: "You aren't authorized to make this request, you must be login for make it"
-  /api/posts/type:
+  /api/posts/types:
     get:
       tags:
       - posts-controller-rest
       operationId: getPostsOfType
-      description: "This method gives you the list of games define by a certain type, this method filter the games and gives you the ones that haves the same type you choose"
+      description: "This method filter the posts by its type, and return all the posts of the type choose of the game choose"
       parameters:
       - name: theType
         in: query
-        description: "This is the type of you want to get"
+        description: "This is the type of post we have choose"
         required: true
         schema:
           type: string
+      - name: gameID
+        in: query
+        description: "This is the id of the game that you want to get the posts of"
+        required: true
+        schema:
+          type: integer
+          format: int32
       responses:
         "200":
           description: OK
@@ -740,7 +773,9 @@ paths:
                 type: array
                 items:
                   $ref: '#/components/schemas/Post_PostDetail'
-  /api/posts/game:
+        "404":
+          description: "The game you choose doesnt exist"
+  /api/posts/games:
     get:
       tags:
       - posts-controller-rest
@@ -763,32 +798,8 @@ paths:
                 type: array
                 items:
                   $ref: '#/components/schemas/Post_PostDetail'
-  /api/games/{id}/scores:
-    get:
-      tags:
-      - game-controller-rest
-      operationId: getScores
-      description: "This method gives you the scores of a certain game"
-      parameters:
-      - name: id
-        in: path
-        description: "This is the of the game you want to get scores of"
-        required: true
-        schema:
-          type: integer
-          format: int64
-      responses:
-        "200":
-          description: OK
-          content:
-            '*/*':
-              schema:
-                type: object
-                additionalProperties:
-                  type: integer
-                  format: int32
         "404":
-          description: "The game doesnt exist"
+          description: "The game you choose doesnt exist"
   /api/games/{id}/recommendations:
     get:
       tags:
@@ -811,7 +822,7 @@ paths:
                 type: array
                 items:
                   $ref: '#/components/schemas/Game_gameBasico'
-  /api/games/page:
+  /api/games/pages:
     get:
       tags:
       - game-controller-rest
@@ -872,7 +883,7 @@ paths:
                 items:
                   $ref: '#/components/schemas/Game_gameBasico'
   /api/chats/{id}/messages:
-    get:
+   get:
       tags:
       - chat-controller-rest
       operationId: getAllMessages
@@ -894,6 +905,8 @@ paths:
                 type: array
                 items:
                   type: string
+        "404":
+          description: "The chat doesnt exist"
   /api/chats/:
     get:
       tags:
@@ -909,6 +922,8 @@ paths:
                 type: array
                 items:
                   $ref: '#/components/schemas/Chat_ChatDetail'
+        "404":
+          description: "The chat doesnt exist"
 components:
   schemas:
     User_userBasico:
