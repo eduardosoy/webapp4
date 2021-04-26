@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'header',
@@ -6,4 +7,10 @@ import { Component } from '@angular/core';
 })
 export class HeaderComponent {
   imgUrl = "assets/logo.png"
+
+  constructor(private router: Router){ }
+
+  gotoIndex() {this.router.navigate(['index']);}
+  gotoLogin() {this.router.navigate(['login']);}
+  gotoRegister() {this.router.navigate(['register']);}
 }
