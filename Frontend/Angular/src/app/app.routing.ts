@@ -8,7 +8,7 @@ const appRoutes = [
     
     { path: 'games', component: GamePageComponent },
     { path: 'index', component: IndexPageComponent },
-    { path: 'stadistics', component: GameStadisticsComponent },
+    { path: 'stadistics/:id', component: GameStadisticsComponent },
     { path: '', redirectTo: 'index', pathMatch: 'full' }
 ];
 

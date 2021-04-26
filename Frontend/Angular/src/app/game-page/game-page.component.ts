@@ -11,18 +11,19 @@ import { GameService } from '../services/game.service';
 export class GamePageComponent {
   
 game:Game;
-
-  constructor(private router: Router, activatedRoute:ActivatedRoute, private gameService: GameService) {
-    let id = activatedRoute.snapshot.params['id'];
-    /*this.gameService.getGameById(id).subscribe(
-      game => {
-        this.game = game as Game;
-      }
-    );*/
-   }
+//id:number;
+  constructor(private router: Router,/* activatedRoute:ActivatedRoute, */private gameService: GameService) {
+    /*let id = activatedRoute.snapshot.params['id'];
+    this.id = id;*/
+  }
+    /*getGame(){
+      this.gameService.getGameById(this.id).subscribe(
+        game => {
+          this.game = game as Game;
+        }
+      );
+    }*/
+   
    returnIndex() {this.router.navigate(['index']);}
-   gotoGameStats() {this.router.navigate(['stadistics']);}
+   gotoGameStats() {this.router.navigate(['stadistics/:id']);}
 }
-/*<a [routerLink] ="['games/:id',game.gameTitle]">
-  {{game.gameTitle}}
-  </a>*/
