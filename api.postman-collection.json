@@ -64,7 +64,7 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "https://localhost:8443/api/games/page?numPage=0",
+							"raw": "https://localhost:8443/api/games/pages?numPage=0",
 							"protocol": "https",
 							"host": [
 								"localhost"
@@ -73,7 +73,7 @@
 							"path": [
 								"api",
 								"games",
-								"page"
+								"pages"
 							],
 							"query": [
 								{
@@ -186,7 +186,7 @@
 							]
 						},
 						"url": {
-							"raw": "https://localhost:8443/api/games/147/image",
+							"raw": "https://localhost:8443/api/games/147/images",
 							"protocol": "https",
 							"host": [
 								"localhost"
@@ -196,7 +196,7 @@
 								"api",
 								"games",
 								"147",
-								"image"
+								"images"
 							]
 						},
 						"description": "Upload Image for game"
@@ -209,7 +209,7 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "https://localhost:8443/api/games/147/image",
+							"raw": "https://localhost:8443/api/games/147/images",
 							"protocol": "https",
 							"host": [
 								"localhost"
@@ -219,7 +219,7 @@
 								"api",
 								"games",
 								"147",
-								"image"
+								"images"
 							]
 						},
 						"description": "Get game image"
@@ -232,7 +232,7 @@
 						"method": "DELETE",
 						"header": [],
 						"url": {
-							"raw": "https://localhost:8443/api/games/1",
+							"raw": "https://localhost:8443/api/games/147",
 							"protocol": "https",
 							"host": [
 								"localhost"
@@ -241,7 +241,7 @@
 							"path": [
 								"api",
 								"games",
-								"1"
+								"147"
 							]
 						},
 						"description": "Delete game by ID\r\n"
@@ -254,7 +254,7 @@
 						"method": "POST",
 						"header": [],
 						"url": {
-							"raw": "https://localhost:8443/api/games/1/score?stars=5",
+							"raw": "https://localhost:8443/api/games/1/scores?stars=5",
 							"protocol": "https",
 							"host": [
 								"localhost"
@@ -264,7 +264,7 @@
 								"api",
 								"games",
 								"1",
-								"score"
+								"scores"
 							],
 							"query": [
 								{
@@ -282,7 +282,7 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "https://localhost:8443/api/game/1/scores",
+							"raw": "https://localhost:8443/api/games/1/scores",
 							"protocol": "https",
 							"host": [
 								"localhost"
@@ -290,7 +290,7 @@
 							"port": "8443",
 							"path": [
 								"api",
-								"game",
+								"games",
 								"1",
 								"scores"
 							]
@@ -301,10 +301,10 @@
 				{
 					"name": "Subscribe to game",
 					"request": {
-						"method": "PUT",
+						"method": "POST",
 						"header": [],
 						"url": {
-							"raw": "https://localhost:8443/api/games/147/submits",
+							"raw": "https://localhost:8443/api/games/17/subscriptors",
 							"protocol": "https",
 							"host": [
 								"localhost"
@@ -313,8 +313,8 @@
 							"path": [
 								"api",
 								"games",
-								"147",
-								"submits"
+								"17",
+								"subscriptors"
 							]
 						}
 					},
@@ -326,7 +326,7 @@
 						"method": "PUT",
 						"header": [],
 						"url": {
-							"raw": "https://localhost:8443/api/games/147/unsubmits",
+							"raw": "https://localhost:8443/api/games/1/subscriptors",
 							"protocol": "https",
 							"host": [
 								"localhost"
@@ -335,8 +335,8 @@
 							"path": [
 								"api",
 								"games",
-								"147",
-								"unsubmits"
+								"1",
+								"subscriptors"
 							]
 						}
 					},
@@ -401,7 +401,7 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "https://localhost:8443/api/posts/type?theType=Updates",
+							"raw": "https://localhost:8443/api/posts/types?theType=Updates&gameID=17",
 							"protocol": "https",
 							"host": [
 								"localhost"
@@ -410,12 +410,16 @@
 							"path": [
 								"api",
 								"posts",
-								"type"
+								"types"
 							],
 							"query": [
 								{
 									"key": "theType",
 									"value": "Updates"
+								},
+								{
+									"key": "gameID",
+									"value": "17"
 								}
 							]
 						}
@@ -450,7 +454,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n    \"title\":\"Nuevo post\",\r\n    \"creationDate\":\"17/04/21\",\r\n    \"updateDate\":\"17/04/21\",\r\n    \"fromGameID\":1,\r\n    \"postText\":\"lorem ipsum\",\r\n    \"author\":\"Pepito\",\r\n    \"theType\":\"News\",\r\n    \"imagePath\":null\r\n}",
+							"raw": "{\r\n    \"title\":\"Nuevo post\",\r\n    \"creationDate\":\"17/04/21\",\r\n    \"updateDate\":\"17/04/21\",\r\n    \"fromGameID\":17,\r\n    \"postText\":\"lorem ipsum\",\r\n    \"author\":\"Pepito\",\r\n    \"theType\":\"News\",\r\n    \"imagePath\":null\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -458,7 +462,7 @@
 							}
 						},
 						"url": {
-							"raw": "https://localhost:8443/api/posts/?fromGame=1",
+							"raw": "https://localhost:8443/api/posts/?fromGame=17",
 							"protocol": "https",
 							"host": [
 								"localhost"
@@ -472,7 +476,7 @@
 							"query": [
 								{
 									"key": "fromGame",
-									"value": "1"
+									"value": "17"
 								}
 							]
 						}
@@ -486,7 +490,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n    \"title\":\"Nuevo post version 2\",\r\n    \"creationDate\":\"17/04/21\",\r\n    \"updateDate\":\"17/04/21\",\r\n    \"fromGameID\":2,\r\n    \"postText\":\"lorem ipsum\",\r\n    \"author\":\"Juanito\",\r\n    \"theType\":\"Updates\",\r\n    \"imagePath\":null\r\n}",
+							"raw": "{\r\n    \"title\":\"Nuevo post version 2\",\r\n    \"creationDate\":\"17/04/21\",\r\n    \"updateDate\":\"17/04/21\",\r\n    \"postText\":\"lorem ipsum\",\r\n    \"author\":\"Juanito\",\r\n    \"theType\":\"Updates\",\r\n    \"imagePath\":null\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -494,7 +498,7 @@
 							}
 						},
 						"url": {
-							"raw": "https://localhost:8443/api/posts/3",
+							"raw": "https://localhost:8443/api/posts/147",
 							"protocol": "https",
 							"host": [
 								"localhost"
@@ -503,7 +507,7 @@
 							"path": [
 								"api",
 								"posts",
-								"3"
+								"147"
 							]
 						}
 					},
@@ -525,7 +529,7 @@
 							]
 						},
 						"url": {
-							"raw": "https://localhost:8443/api/posts/3/image",
+							"raw": "https://localhost:8443/api/posts/3/images",
 							"protocol": "https",
 							"host": [
 								"localhost"
@@ -535,7 +539,7 @@
 								"api",
 								"posts",
 								"3",
-								"image"
+								"images"
 							]
 						}
 					},
@@ -547,7 +551,7 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "https://localhost:8443/api/posts/3/image",
+							"raw": "https://localhost:8443/api/posts/3/images",
 							"protocol": "https",
 							"host": [
 								"localhost"
@@ -557,19 +561,19 @@
 								"api",
 								"posts",
 								"3",
-								"image"
+								"images"
 							]
 						}
 					},
 					"response": []
 				},
 				{
-					"name": "New Request",
+					"name": "Delete post",
 					"request": {
 						"method": "DELETE",
 						"header": [],
 						"url": {
-							"raw": "https://localhost:8443/api/post/148",
+							"raw": "https://localhost:8443/api/posts/3",
 							"protocol": "https",
 							"host": [
 								"localhost"
@@ -577,8 +581,8 @@
 							"port": "8443",
 							"path": [
 								"api",
-								"post",
-								"148"
+								"posts",
+								"3"
 							]
 						}
 					},
@@ -616,7 +620,7 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "https://localhost:8443/api/profiles/145",
+							"raw": "https://localhost:8443/api/profiles/146",
 							"protocol": "https",
 							"host": [
 								"localhost"
@@ -625,7 +629,7 @@
 							"path": [
 								"api",
 								"profiles",
-								"145"
+								"146"
 							],
 							"query": [
 								{
@@ -709,12 +713,12 @@
 								{
 									"key": "imageFile",
 									"type": "file",
-									"src": []
+									"src": "/C:/Users/Usuario/Downloads/broken_mirror.png"
 								}
 							]
 						},
 						"url": {
-							"raw": "https://localhost:8443/api/profiles/145/image",
+							"raw": "https://localhost:8443/api/profiles/145/images",
 							"protocol": "https",
 							"host": [
 								"localhost"
@@ -724,7 +728,7 @@
 								"api",
 								"profiles",
 								"145",
-								"image"
+								"images"
 							]
 						}
 					},
@@ -736,7 +740,7 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "https://localhost:8443/api/profiles/145/image",
+							"raw": "https://localhost:8443/api/profiles/147/images",
 							"protocol": "https",
 							"host": [
 								"localhost"
@@ -745,8 +749,30 @@
 							"path": [
 								"api",
 								"profiles",
-								"145",
-								"image"
+								"147",
+								"images"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get subscriptions",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://localhost:8443/api/profiles/146/subscriptions",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "8443",
+							"path": [
+								"api",
+								"profiles",
+								"146",
+								"subscriptions"
 							]
 						}
 					},
@@ -800,12 +826,12 @@
 					"response": []
 				},
 				{
-					"name": "post messsage",
+					"name": "Post message",
 					"request": {
 						"method": "PUT",
 						"header": [],
 						"url": {
-							"raw": "https://localhost:8443/api/chats/17?message=muy bien",
+							"raw": "https://localhost:8443/api/chats/17?message=Hola que tal",
 							"protocol": "https",
 							"host": [
 								"localhost"
@@ -819,30 +845,8 @@
 							"query": [
 								{
 									"key": "message",
-									"value": "muy bien"
+									"value": "Hola que tal"
 								}
-							]
-						}
-					},
-					"response": []
-				},
-				{
-					"name": "Get all messages",
-					"request": {
-						"method": "GET",
-						"header": [],
-						"url": {
-							"raw": "https://localhost:8443/api/chats/18/messages",
-							"protocol": "https",
-							"host": [
-								"localhost"
-							],
-							"port": "8443",
-							"path": [
-								"api",
-								"chats",
-								"18",
-								"messages"
 							]
 						}
 					},

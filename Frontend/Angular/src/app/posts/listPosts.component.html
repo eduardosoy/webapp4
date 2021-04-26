@@ -1,0 +1,6 @@
+<div style="background-color: aliceblue;">
+  <h1>Stardew Valley: lista {{typeString}}</h1>
+  <postButton *ngFor="let post of posts" [post]="post" (clicked)="gotoExpandedPost(post.id)"></postButton>
+</div>
+
+<p><button (click)="gotoIndex()">ir a Index</button></p>
