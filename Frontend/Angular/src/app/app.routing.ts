@@ -11,12 +11,12 @@ import { LoginComponent } from './login/login.component';
 
 
 const appRoutes = [
-    
+
     { path: 'games', component: GamePageComponent },
     { path: 'index', component: IndexPageComponent },
     { path: 'statistics/:id', component: GameStatisticsComponent },
     { path: '', redirectTo: 'index', pathMatch: 'full' },
-    { path: 'listPosts',component:ListPostsComponent},
+    { path: 'listPosts/types',component:ListPostsComponent},
     { path: 'listPosts/:id',component:ExpandedPostComponent},
     { path: 'newPost',component:CreatePostComponent},
     { path: 'editPost/:id',component:EditPostComponent},

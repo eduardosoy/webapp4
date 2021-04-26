@@ -6,10 +6,10 @@ import { GameService } from '../services/game.service';
 @Component({
   selector: 'app-game-page',
   templateUrl: './game-page.component.html',
-  
+
 })
 export class GamePageComponent {
-  
+
 game:Game;
 //id:number;
   constructor(private router: Router,/* activatedRoute:ActivatedRoute, */private gameService: GameService) {
@@ -26,7 +26,8 @@ game:Game;
         }
       );
     }
-   
+
    returnIndex() {this.router.navigate(['index']);}
    gotoGameStats(id:number) {this.router.navigate(['statistics/'+this.game.id]);}
+   gotoListPosts(id:number,postType,numPage:string){this.router.navigate(['listPosts/types'])}
 }
