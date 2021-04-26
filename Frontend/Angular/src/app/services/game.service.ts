@@ -15,6 +15,14 @@ const BASE_URL: string = 'api/games/';
         ) as Observable<Game>;
     }
 
+
+    getGames(): Observable<Game[]> {
+      return this.httpClient.get(BASE_URL).pipe(
+        catchError(error => this.handleError(error))
+      ) as Observable<Game[]>;
+    }
+  
+
     private handleError(error: any) {
 		console.error(error);
 		return Observable.throw('Server error (' + error.status + '): ' + error.text())

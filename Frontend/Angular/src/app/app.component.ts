@@ -17,10 +17,10 @@ export class AppComponent {
   constructor(private gameService: GameService ,private router: Router){ }
 
   ngOnInit() {
-    this.getGames();
+    this.getGame();
   }
 
-  getGames(){
+  getGame(){
     this.gameService.getGameById(1).subscribe(
       game => {
         this.game = game as Game;

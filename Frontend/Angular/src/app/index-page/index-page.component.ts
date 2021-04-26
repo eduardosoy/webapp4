@@ -11,11 +11,22 @@ import { GameService } from '../services/game.service';
 export class IndexPageComponent  {
 
   game:Game;
+  games:Game[];
 
   constructor(private router: Router, activatedRoute:ActivatedRoute, private gameService: GameService) {
     let id = activatedRoute.snapshot.params['id'];
 
   
+  }
+  ngOnInit() {
+    this.getGames();
+  }
+  getGames(){
+    this.gameService.getGames().subscribe(
+      games => {
+        this.games = games as Game[];
+      }
+    );
   }
   gotoGamePage() {this.router.navigate(['games']);}
 }
