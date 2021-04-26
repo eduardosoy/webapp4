@@ -8,6 +8,7 @@ import { ExpandedPostComponent } from './posts/expandedPost.component';
 import { CreatePostComponent } from './posts/createPost.component';
 import { EditPostComponent } from './posts/editPost.component';
 import { LoginComponent } from './login/login.component';
+import { RegisterComponent } from './register/register.component';
 
 
 const appRoutes = [
@@ -20,7 +21,8 @@ const appRoutes = [
     { path: 'listPosts/:id',component:ExpandedPostComponent},
     { path: 'newPost',component:CreatePostComponent},
     { path: 'editPost/:id',component:EditPostComponent},
-    { path: 'login',component:LoginComponent}
+    { path: 'login',component:LoginComponent},
+    { path: 'register',component:RegisterComponent}
 ];
 
 export const routing = RouterModule.forRoot(appRoutes);

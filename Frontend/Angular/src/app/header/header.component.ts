@@ -11,4 +11,6 @@ export class HeaderComponent {
   constructor(private router: Router){ }
 
   gotoIndex() {this.router.navigate(['index']);}
+  gotoLogin() {this.router.navigate(['login']);}
+  gotoRegister() {this.router.navigate(['register']);}
 }
