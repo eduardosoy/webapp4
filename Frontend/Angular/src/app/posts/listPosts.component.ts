@@ -1,6 +1,6 @@
 import { PostService } from './../services/post.service';
-import { PostButton } from './postButton.component';
-import { Post } from '../interfaces/post.model';
+import { PostButtonComponent } from './postButton.component';
+import { Post } from '../models/post.model';
 import { Component } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 

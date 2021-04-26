@@ -10,12 +10,12 @@ import { routing } from './app.routing';
 import { IndexPageComponent } from './index-page/index-page.component';
 import { GameStatisticsComponent } from './game-statistics/game-statistics.component';
 import { ListPostsComponent } from './posts/listPosts.component';
-import { PostButton } from './posts/postButton.component';
-import { ExpandedPost } from './posts/expandedPost.component';
-
+import { PostButtonComponent } from './posts/postButton.component';
+import { ExpandedPostComponent } from './posts/expandedPost.component';
+import { CreatePostComponent } from './posts/createPost.component';
 @NgModule({
-  declarations: [AppComponent,HeaderComponent,FooterComponent, GamePageComponent, IndexPageComponent, GameStatisticsComponent],
-  imports: [BrowserModule, FormsModule, HttpClientModule, ListPostsComponent, PostButton, ExpandedPost, routing],
+  declarations: [AppComponent,HeaderComponent,FooterComponent, GamePageComponent, IndexPageComponent, GameStatisticsComponent, CreatePostComponent ,ListPostsComponent,  ExpandedPostComponent, PostButtonComponent],
+  imports: [BrowserModule, FormsModule, HttpClientModule, routing],
   providers: [],
   bootstrap: [AppComponent] 
 })

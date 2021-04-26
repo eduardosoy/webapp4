@@ -1,12 +1,12 @@
 import { Component, Input, Output, EventEmitter } from '@angular/core';
 
-import { Post } from '../interfaces/post.model';
+import { Post } from '../models/post.model';
 
 @Component({
 	selector: 'postButton',
 	templateUrl: './postButton.component.html'
 })
-export class PostButton {
+export class PostButtonComponent {
 
 	@Input()
 	post: Post;

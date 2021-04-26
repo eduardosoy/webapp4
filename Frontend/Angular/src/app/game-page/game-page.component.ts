@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
-import { Game } from '../interfaces/game.model';
+import { Game } from '../models/game.model';
 import { GameService } from '../services/game.service';
 
 @Component({
@@ -20,7 +20,7 @@ game:Game;
     this.getGame();
   }
     getGame(){
-      this.gameService.getGameById(17).subscribe(
+      this.gameService.getGameById(1).subscribe(
         game => {
           this.game = game as Game;
         }

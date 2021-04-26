@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
-import { Post } from '../interfaces/post.model';
+import { Post } from '../models/post.model';
 import { PostService } from '../services/post.service';
 
 @Component({
@@ -8,7 +8,7 @@ import { PostService } from '../services/post.service';
   templateUrl: './expandedPost.component.html'
 })
 
-export class ExpandedPost{
+export class ExpandedPostComponent{
   post:Post;
   constructor(private router: Router, activatedRoute:ActivatedRoute,private pService:PostService) {
     let id = activatedRoute.snapshot.params['id'];
