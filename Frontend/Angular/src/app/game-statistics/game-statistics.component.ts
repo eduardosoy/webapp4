@@ -4,11 +4,11 @@ import { Game } from '../interfaces/game.model';
 import { GameService } from '../services/game.service';
 
 @Component({
-  selector: 'app-game-stadistics',
-  templateUrl: './game-stadistics.component.html',
+  selector: 'app-game-statistics',
+  templateUrl: './game-statistics.component.html',
   
 })
-export class GameStadisticsComponent  {
+export class GameStatisticsComponent  {
   game:Game;
   id:number;
   constructor(private router: Router, activatedRoute:ActivatedRoute, private gameService: GameService) { 

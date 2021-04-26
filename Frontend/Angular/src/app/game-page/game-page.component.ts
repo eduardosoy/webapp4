@@ -25,5 +25,5 @@ game:Game;
     }*/
    
    returnIndex() {this.router.navigate(['index']);}
-   gotoGameStats() {this.router.navigate(['stadistics/:id']);}
+   gotoGameStats() {this.router.navigate(['statistics/:id']);}
 }
