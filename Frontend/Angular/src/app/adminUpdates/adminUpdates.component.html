@@ -1,0 +1,59 @@
+<!-- Page Content -->
+<div class="container container-white">
+  <div class="row">
+    <div class="col-lg-12">
+      <p></p>
+      <h2>Juegos subidos</h2>  
+      <a href="/adminUpdates/addGame">
+        <img  [src]="iconUrl" width="40" height="40">
+      </a>
+      <p></p>
+      <table class="table table-striped">
+        <thead>
+          <tr>
+            <th class="responsiveC">Portada</th>
+            <th>Nombre</th>
+            <th>Descripción</th>
+            <th>Categoria</th>
+            <th></th>
+          </tr>
+        </thead>
+        <tbody id="gamesZone">
+          <!--
+          <tr>
+            <td><a href="/gamePage/{{id}}"><img src="/gamePage/{{id}}/image" width="170" height="230"></img></a></td>
+            <td>{{gameTitle}}</td>
+            <td>{{description}}</td>
+            <td> {{genre}}</td>
+            <td>
+              <div class="btn-group-vertical">
+                <a class="btn btn-info" href="/adminUpdates/editGame/{{id}}" role="button">Editar</a> 
+                <a class="btn btn-info" href="/createPostPage/{{id}}" role="button">Crear post</a>   
+                <a class="btn btn-danger" href="/adminUpdates/delete/{{id}}" role="button">Eliminar</a>                              
+              </div>
+            </td>
+          </tr>
+          -->
+          <tr>
+            <td>No se ha encontrado el juego</td>
+            <td>No se ha encontrado el juego</td>
+            <td>No se ha encontrado el juego</td>
+            <td>No se ha encontrado el juego</td>
+          </tr>
+                 
+        </tbody>          
+      </table>
+      <div id="loadZone" class="table table-striped"></div>
+    </div>
+    <!-- /.col-lg-12 -->
+    <div class="col-lg-12 col-md-12 mb-12" style="align-items: center;">
+      <div class="card-body">
+        <div class="card h-100">
+            <button class="btn btn-info" id="loadMore">Mostrar Más</button>
+        </div>
+      </div>
+    </div>
+    <!-- /.row -->
+  </div>
+  <!-- /.container -->
+</div>
