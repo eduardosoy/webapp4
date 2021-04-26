@@ -26,6 +26,11 @@ export class PostService{
           catchError(error => this.handleError(error))
         ) as Observable<Post>;
     }
+    createNewPost(post:Post): Observable<Post>{
+        return this.httpClient.post(BASE_URL_POSTS,post).pipe(
+          catchError(error => this.handleError(error))
+        ) as Observable<Post>;
+    }
 
     private handleError(error: any) {
 		console.error(error);
