@@ -17,10 +17,10 @@ export class AppComponent {
   constructor(private gameService: GameService ,private router: Router){ }
 
   ngOnInit() {
-    this.getGames();
+    this.getGame();
   }
 
-  getGames(){
+  getGame(){
     this.gameService.getGameById(1).subscribe(
       game => {
         this.game = game as Game;
@@ -29,4 +29,5 @@ export class AppComponent {
   }
   gotoGamePage() {this.router.navigate(['games/:id']);}
   gotoIndex() {this.router.navigate(['index']);}
+  gotoAdminUpdates() {this.router.navigate(['adminUpdates']);}
 }
