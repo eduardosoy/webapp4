@@ -14,11 +14,12 @@ import { PostButtonComponent } from './posts/postButton.component';
 import { ExpandedPostComponent } from './posts/expandedPost.component';
 import { CreatePostComponent } from './posts/createPost.component';
 import { EditPostComponent } from './posts/editPost.component';
+import { LoginComponent } from './login/login.component';
 
 @NgModule({
   declarations: [AppComponent,HeaderComponent,FooterComponent, GamePageComponent, IndexPageComponent, 
     GameStatisticsComponent, CreatePostComponent ,ListPostsComponent,  ExpandedPostComponent, 
-    PostButtonComponent, EditPostComponent],
+    PostButtonComponent, EditPostComponent, LoginComponent],
   imports: [BrowserModule, FormsModule, HttpClientModule, routing],
   providers: [],
   bootstrap: [AppComponent] 
