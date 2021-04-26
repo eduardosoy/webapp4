@@ -13,7 +13,7 @@ import { AdminUpdatesComponent } from './adminUpdates/adminUpdates.component';
 
 const appRoutes = [
 
-    { path: 'games', component: GamePageComponent },
+    { path: 'games/:id', component: GamePageComponent },
     { path: 'index', component: IndexPageComponent },
     { path: 'adminUpdates', component: AdminUpdatesComponent },
     { path: 'statistics/:id', component: GameStatisticsComponent },
