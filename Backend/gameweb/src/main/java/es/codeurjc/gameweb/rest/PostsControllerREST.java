@@ -99,6 +99,8 @@ public class PostsControllerREST {
             post.setFromGame(game);
             pService.save(post);
             URI location=fromCurrentRequest().path("/{id}").buildAndExpand(post.getId()).toUri();
+            String imgPath="https://localhost:8443/api/posts/"+post.getId()+"/images";
+            post.setImagePath(imgPath);
             return ResponseEntity.created(location).body(post);
         }
         else{

@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { GameService } from 'src/app/services/game.service';
-import { Game } from './interfaces/game.model';
+import { Game } from './models/game.model';
 
 
 @Component({
@@ -28,4 +28,5 @@ export class AppComponent {
     );
   }
   gotoGamePage() {this.router.navigate(['games/:id']);}
+  gotoIndex() {this.router.navigate(['index']);}
 }
