@@ -18,7 +18,4 @@ export class EditPostComponent{
       }
     )
    }
-   gotoEditPost(){
-    this.router.navigate(['editPost/'+this.post.id])
-  }
 }
