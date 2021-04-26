@@ -29,4 +29,5 @@ export class AppComponent {
   }
   gotoGamePage() {this.router.navigate(['games/:id']);}
   gotoIndex() {this.router.navigate(['index']);}
+  gotoAdminUpdates() {this.router.navigate(['adminUpdates']);}
 }

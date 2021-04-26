@@ -7,12 +7,14 @@ import { PostButtonComponent } from './posts/postButton.component';
 import { ExpandedPostComponent } from './posts/expandedPost.component';
 import { CreatePostComponent } from './posts/createPost.component';
 import { EditPostComponent } from './posts/editPost.component';
+import { AdminUpdatesComponent } from './adminUpdates/adminUpdates.component';
 
 
 const appRoutes = [
     
     { path: 'games', component: GamePageComponent },
     { path: 'index', component: IndexPageComponent },
+    { path: 'adminUpdates', component: AdminUpdatesComponent },
     { path: 'statistics/:id', component: GameStatisticsComponent },
     { path: '', redirectTo: 'index', pathMatch: 'full' },
     { path: 'listPosts',component:ListPostsComponent},

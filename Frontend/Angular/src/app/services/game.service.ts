@@ -27,6 +27,4 @@ const BASE_URL: string = 'api/games/';
 		console.error(error);
 		return Observable.throw('Server error (' + error.status + '): ' + error.text())
 	}
-
-
   }

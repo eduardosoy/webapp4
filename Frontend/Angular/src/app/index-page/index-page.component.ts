@@ -12,6 +12,7 @@ export class IndexPageComponent  {
 
   game:Game;
   games:Game[];
+  iconUrl = "assets/plusicon.png"
 
   constructor(private router: Router, activatedRoute:ActivatedRoute, private gameService: GameService) {
     let id = activatedRoute.snapshot.params['id'];
@@ -29,4 +30,5 @@ export class IndexPageComponent  {
     );
   }
   gotoGamePage() {this.router.navigate(['games']);}
+  gotoAdminUpdates() {this.router.navigate(['adminUpdates']);}
 }
