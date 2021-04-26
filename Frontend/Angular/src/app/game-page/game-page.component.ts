@@ -20,7 +20,7 @@ game:Game;
     this.getGame();
   }
     getGame(){
-      this.gameService.getGameById(1).subscribe(
+      this.gameService.getGameById(17).subscribe(
         game => {
           this.game = game as Game;
         }
@@ -28,5 +28,5 @@ game:Game;
     }
    
    returnIndex() {this.router.navigate(['index']);}
-   gotoGameStats() {this.router.navigate(['statistics/'+this.game.id]);}
+   gotoGameStats(id:number) {this.router.navigate(['statistics/'+this.game.id]);}
 }
