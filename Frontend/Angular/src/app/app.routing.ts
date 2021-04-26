@@ -10,6 +10,7 @@ import { EditPostComponent } from './posts/editPost.component';
 import { LoginComponent } from './login/login.component';
 import { RegisterComponent } from './register/register.component';
 import { AdminUpdatesComponent } from './adminUpdates/adminUpdates.component';
+import { ProfileComponent } from './profile/profile.component';
 
 const appRoutes = [
 
@@ -23,7 +24,8 @@ const appRoutes = [
     { path: 'newPost',component:CreatePostComponent},
     { path: 'editPost/:id',component:EditPostComponent},
     { path: 'login',component:LoginComponent},
-    { path: 'register',component:RegisterComponent}
+    { path: 'register',component:RegisterComponent},
+    { path: 'profile',component:ProfileComponent}
 ];
 
 export const routing = RouterModule.forRoot(appRoutes);

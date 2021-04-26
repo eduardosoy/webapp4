@@ -13,4 +13,5 @@ export class HeaderComponent {
   gotoIndex() {this.router.navigate(['index']);}
   gotoLogin() {this.router.navigate(['login']);}
   gotoRegister() {this.router.navigate(['register']);}
+  gotoProfile() {this.router.navigate(['profile']);}
 }
