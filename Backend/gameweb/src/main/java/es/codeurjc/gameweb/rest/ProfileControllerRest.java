@@ -81,6 +81,8 @@ public class ProfileControllerRest {
         user.setImageFile(BlobProxy.generateProxy(image.getInputStream(), image.contentLength()));
         userService.save(user);     
         URI location = fromCurrentRequest().path("/{id}").buildAndExpand(user.getId()).toUri();
+        String imgPath="https://localhost:8443/api/profiles/"+user.getId()+"/images";
+        user.setImagePath(imgPath);
         return ResponseEntity.created(location).body(user);
     }
     @JsonView(userBasico.class)

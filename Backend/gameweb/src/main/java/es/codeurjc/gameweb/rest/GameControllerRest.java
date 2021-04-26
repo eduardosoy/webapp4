@@ -161,6 +161,9 @@ public class GameControllerRest {
         gameService.save(game);
  
         URI location = fromCurrentRequest().path("/{id}").buildAndExpand(game.getId()).toUri();
+
+        String imgPath="https://localhost:8443/api/games/"+game.getId()+"/images";
+        game.setImagePath(imgPath);
  
         return ResponseEntity.created(location).body(game);
     }
