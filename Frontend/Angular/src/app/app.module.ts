@@ -8,9 +8,10 @@ import { HeaderComponent } from './header/header.component';
 import { GamePageComponent } from './game-page/game-page.component';
 import { routing } from './app.routing';
 import { IndexPageComponent } from './index-page/index-page.component';
+import { GameStadisticsComponent } from './game-stadistics/game-stadistics.component';
 
 @NgModule({
-  declarations: [AppComponent,HeaderComponent,FooterComponent, GamePageComponent, IndexPageComponent],
+  declarations: [AppComponent,HeaderComponent,FooterComponent, GamePageComponent, IndexPageComponent, GameStadisticsComponent],
   imports: [BrowserModule, FormsModule, HttpClientModule, routing],
   providers: [],
   bootstrap: [AppComponent] 
