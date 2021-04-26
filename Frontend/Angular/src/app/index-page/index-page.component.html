@@ -1,4 +1,3 @@
-<p><button (click)="gotoGamePage()">ir a GamePage</button></p>
 <p><button (click)="gotoAdminUpdates()">ir a AdminUpdates</button></p>
 <!-- Page Content -->
 <div class="container container-white">
@@ -46,7 +45,7 @@
             <div class="row">
                 <div *ngFor="let game of games;" class="col-lg-3 col-md-4 mb-4">
                     <div class="card h-100">
-                        <a href="/gamePage/"><img class="card-img-top" src="{{game.imagePath}}" alt=""></a>
+                        <a (click)="gotoGamePage(game.id)"><img class="card-img-top" src="{{game.imagePath}}" alt=""></a>
                         <div class="card-body">
                             <h6 class="card-title">
                                 <a href="/gamePage/" class="links">{{game.gameTitle}}</a>

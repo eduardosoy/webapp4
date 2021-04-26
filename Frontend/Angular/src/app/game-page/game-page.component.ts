@@ -11,16 +11,16 @@ import { GameService } from '../services/game.service';
 export class GamePageComponent {
 
 game:Game;
-//id:number;
-  constructor(private router: Router,/* activatedRoute:ActivatedRoute, */private gameService: GameService) {
-    /*let id = activatedRoute.snapshot.params['id'];
-    this.id = id;*/
+id:number;
+  constructor(private router: Router, activatedRoute:ActivatedRoute, private gameService: GameService) {
+    let id = activatedRoute.snapshot.params['id'];
+    this.id = id;
   }
   ngOnInit(): void {
     this.getGame();
   }
     getGame(){
-      this.gameService.getGameById(1).subscribe(
+      this.gameService.getGameById(this.id).subscribe(
         game => {
           this.game = game as Game;
         }
@@ -28,6 +28,6 @@ game:Game;
     }
 
    returnIndex() {this.router.navigate(['index']);}
-   gotoGameStats(id:number) {this.router.navigate(['statistics/'+this.game.id]);}
+   gotoGameStats(id:number) {this.router.navigate(['statistics/'+id]);}
    gotoListPosts(id:number,postType,numPage:string){this.router.navigate(['listPosts/types'])}
 }

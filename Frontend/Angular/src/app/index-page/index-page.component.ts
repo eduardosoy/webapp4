@@ -29,6 +29,6 @@ export class IndexPageComponent  {
       }
     );
   }
-  gotoGamePage() {this.router.navigate(['games']);}
+  gotoGamePage(id:number) {this.router.navigate(['games/'+id]);}
   gotoAdminUpdates() {this.router.navigate(['adminUpdates']);}
 }
