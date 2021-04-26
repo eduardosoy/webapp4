@@ -4,11 +4,11 @@ import { Post } from '../models/post.model';
 import { PostService } from '../services/post.service';
 
 @Component({
-  selector: 'post',
-  templateUrl: './expandedPost.component.html'
+  selector: 'editPost',
+  templateUrl: './editPost.component.html'
 })
 
-export class ExpandedPostComponent{
+export class EditPostComponent{
   post:Post;
   constructor(private router: Router, activatedRoute:ActivatedRoute,private pService:PostService) {
     let id = activatedRoute.snapshot.params['id'];
