@@ -13,7 +13,8 @@ export class GameStatisticsComponent  {
   id:number;
   constructor(private router: Router, activatedRoute:ActivatedRoute, private gameService: GameService) { 
     
-    this.id = 1;
+    let id = activatedRoute.snapshot.params['id'];
+    this.id = id;
 
   }
   ngOnInit(): void {
