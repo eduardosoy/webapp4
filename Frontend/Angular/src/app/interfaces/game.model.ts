@@ -1,5 +1,6 @@
 export interface Game {
     gameTitle: String; 
-    id: String;
-    averageScore: String;
+    id: number;
+    averageScore: number;
+    imagePath: String;
 }

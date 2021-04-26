@@ -16,14 +16,17 @@ game:Game;
     /*let id = activatedRoute.snapshot.params['id'];
     this.id = id;*/
   }
-    /*getGame(){
-      this.gameService.getGameById(this.id).subscribe(
+  ngOnInit(): void {
+    this.getGame();
+  }
+    getGame(){
+      this.gameService.getGameById(1).subscribe(
         game => {
           this.game = game as Game;
         }
       );
-    }*/
+    }
    
    returnIndex() {this.router.navigate(['index']);}
-   gotoGameStats() {this.router.navigate(['statistics/:id']);}
+   gotoGameStats() {this.router.navigate(['statistics/'+this.game.id]);}
 }
