@@ -26,7 +26,11 @@ id:number;
         }
       );
     }
-
+   
+    valorar(valoracion:number){
+      
+    }
+    
    returnIndex() {this.router.navigate(['index']);}
    gotoGameStats(id:number) {this.router.navigate(['statistics/'+id]);}
    gotoListPosts(id:number,postType,numPage:string){this.router.navigate(['listPosts/types'],{queryParams:{gameID:id,theType:postType,numPage:numPage}})}
