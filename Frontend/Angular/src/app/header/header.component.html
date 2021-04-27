@@ -28,17 +28,20 @@
         <li class="nav-item" style="padding-right: 20px;">
           <a href="/gameList/0" class="btn4" role="button">AdminUpdates</a>
         </li>
-          <li class="nav-item">
-            <button class="nav-link btn-danger"
-              style="background-color: rgb(209, 6, 6); border-radius: 5px; margin: 2px; color: white" (click)="gotoLogin()">Iniciar sesión</button>
-          </li>
-          <li class="nav-item ">
-            <button class="nav-link btn-danger"
-              style="background-color: rgb(209, 6, 6); border-radius: 5px; margin: 2px; color: white" (click)="gotoRegister()">Registrarse</button>
-          </li>
-          <li class="nav-item">
-            <img src="{{user.imagePath}}" width="50" height="50" style="margin-left: 20px; border-radius: 150px;" (click)="gotoProfile()">
-          </li>
+        <li class="nav-item" *ngIf="!loginService.isLogged()">
+          <button class="nav-link btn-danger"
+            style="background-color: rgb(209, 6, 6); border-radius: 5px; margin: 2px; color: white"
+            (click)="gotoLogin()">Iniciar sesión</button>
+        </li>
+        <li class="nav-item " *ngIf="!loginService.isLogged()">
+          <button class="nav-link btn-danger"
+            style="background-color: rgb(209, 6, 6); border-radius: 5px; margin: 2px; color: white"
+            (click)="gotoRegister()">Registrarse</button>
+        </li>
+        <li class="nav-item" *ngIf="loginService.isLogged()">
+          <img src="{{loginService.user.imagePath}}" width="50" height="50"
+            style="margin-left: 20px; border-radius: 150px;" (click)="gotoProfile()">
+        </li>
       </ul>
     </div>
   </div>

@@ -19,6 +19,19 @@ export class UserService {
           catchError(error => this.handleError(error))
         ) as Observable<User[]>;
       }
+    
+      createNewUser(user:User){
+        if(!user.id){
+          return this.httpClient.post(BASE_URL,user).pipe(
+            catchError(error => this.handleError(error))
+          );
+        }
+        else{
+          return this.httpClient.post(BASE_URL+user.id,user).pipe(
+            catchError(error => this.handleError(error))
+          );
+        }
+    }
 
 
     private handleError(error: any) {

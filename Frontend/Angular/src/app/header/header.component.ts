@@ -9,13 +9,13 @@ import { UserService } from '../services/user.service';
   templateUrl: './header.component.html'
 })
 export class HeaderComponent {
-  user:User;
+
   imgUrl = "assets/logo.png"
 
-  constructor(private router: Router, loginService: LoginService, userService: UserService){ }
+  constructor(private router: Router,public loginService: LoginService,public userService: UserService){ }
 
   gotoIndex() {this.router.navigate(['index']);}
   gotoLogin() {this.router.navigate(['login']);}
   gotoRegister() {this.router.navigate(['register']);}
-  gotoProfile() {this.router.navigate(['profile/146']);}
+  gotoProfile() {this.router.navigate(['profile/'+this.loginService.user.id]);}
 }
