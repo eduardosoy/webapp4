@@ -1,6 +1,6 @@
 import { PostType } from '../enums/PostType';
 export interface User{
-  id:number;
+  id?:number;
   info:string,
   password:string,
   imagePath:string,

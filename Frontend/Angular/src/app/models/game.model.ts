@@ -3,7 +3,7 @@ import { Chat } from '../models/chat.model';
 
 export interface Game {
     gameTitle: String; 
-    id: number;
+    id?: number;
     genre:Genre;
     averageScore: number;
     imagePath: String;
