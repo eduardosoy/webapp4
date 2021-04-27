@@ -10,17 +10,18 @@
                         <h3>Iniciar sesión</h3>
                     </div>
                     <div class="body-section">
-                        <form action="" method="POST" enctype="multipart/form-data">
+                        <form *ngIf="!loginService.isLogged()" method="POST" enctype="multipart/form-data">
                             <div class="form-input">
-                                <input type="text" name="name" placeholder="Nombre de usuario">
+                                <input #user type="text" class="form-control" name="username" placeholder="Username">
                             </div>
                             <div class="form-input">
-                                <input type="password" name="password" placeholder="Contraseña">
+                                <input #pass type="password" class="form-control" name="password" placeholder="Password">
                             </div>
                             <div class="container">
                                 <div class="row">
                                     <div class="form-input col-md-8">
-                                        <input type="submit" value="IniciarSesion">
+                                        <input type="submit" value="IniciarSesion"
+                                            (click)="logIn($event, user.value, pass.value)">
                                     </div>
                                 </div>
                             </div>
