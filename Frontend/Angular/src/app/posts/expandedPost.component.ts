@@ -21,4 +21,7 @@ export class ExpandedPostComponent{
    gotoEditPost(){
     this.router.navigate(['editPost/'+this.post.id])
   }
+  gotoNewPost(){
+    this.router.navigate(['newPost/'+this.post.id])
+  }
 }
