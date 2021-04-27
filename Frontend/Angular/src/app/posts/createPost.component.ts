@@ -16,6 +16,7 @@ export class CreatePostComponent{
   createPost(){
     this.pService.createNewPost(this.post).subscribe(data => {
       console.log(data)
+      //enrutar a success page
     },
     error => console.error('Error al crear el post '+error)
     );

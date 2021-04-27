@@ -15,20 +15,18 @@
                   </tr>
               </thead>
               <tbody>
-                  <form action="" method="post" enctype="multipart/form-data">
                   <tr>
-
                       <td>
-                          <input type='text' value='{{post.title}}' name='newTitle' />
-                          <input type="hidden" name="id" value="{{post.id}}" />
+                          <input type='text' [(ngModel)]="post.title" value='{{post.title}}' name='newTitle' />
+                          <input type="hidden" [(ngModel)]="post.id" name="id" value="{{post.id}}" />
                       </td>
                       <td>
-                          <textarea name='newPostText' value="{{post.postText}}" rows=20 cols=40></textarea>
+                          <textarea name='newPostText' [(ngModel)]="post.postText" value="{{post.postText}}" rows=20 cols=40></textarea>
                       </td>
                       <td>
                           <div class="form-input">
                               <div class="wrap">
-                                <input list="postTypes" name="newType" type="text"
+                                <input list="postTypes" [(ngModel)]="post.postType" name="newType" type="text"
                                     placeholder="Escoge la categoría">
                                 <datalist id="postTypes">
                                     <option value="Guides"></option>
@@ -39,18 +37,15 @@
                               </div>
                       </td>
                       <td>
-                          <input type='text' value='{{post.author}}' name='author' />
+                          <input type='text' [(ngModel)]="post.author" value='{{post.author}}' name='author' />
                       </td>
                       <td>
-                          <img src="/posts/{{post.id}}/image" class="responsive2" width="240" height="135">
+                          <img src="{{post.imagePath}}" class="responsive2" width="240" height="135">
                           <input type='file' name='imageField' accept=".jpg, .jpeg"/>
                           <input type='checkbox' name='removeImage'> <label>Eliminar imagen</label><br>
                       </td>
                   </tr>
-                  <input type="hidden" name="_csrf"/>
-                  <input type='submit' value='Guardar' />
-                  <input type="hidden" name="_csrf"/>
-              </form>
+                  <button (click)="editPost()">Edita el post!</button>
               </tbody>
           </table>
 

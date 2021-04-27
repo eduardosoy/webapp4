@@ -26,7 +26,7 @@ const appRoutes = [
     { path: '', redirectTo: 'index', pathMatch: 'full' },
     { path: 'listPosts/types',component:ListPostsComponent},
     { path: 'listPosts/:id',component:ExpandedPostComponent},
-    { path: 'newPost',component:CreatePostComponent},
+    { path: 'newPost/:id',component:CreatePostComponent},
     { path: 'editPost/:id',component:EditPostComponent},
     { path: 'login',component:LoginComponent},
     { path: 'register',component:RegisterComponent},

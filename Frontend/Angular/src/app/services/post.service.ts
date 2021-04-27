@@ -3,11 +3,12 @@ import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders, HttpParams } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { catchError } from 'rxjs/operators';
+import { DatePipe } from '@angular/common';
 
 const BASE_URL_POSTS: string = 'api/posts/';
 @Injectable({providedIn:'root'})
 export class PostService{
-  constructor(private httpClient: HttpClient) { }
+  constructor(private httpClient: HttpClient,private datePipe:DatePipe) { }
     getAllPosts():Observable<Post[]>{
         return this.httpClient.get(BASE_URL_POSTS).pipe(
           catchError(error=> this.handleError(error))
@@ -27,13 +28,17 @@ export class PostService{
         ) as Observable<Post>;
     }
     createNewPost(post:Post){
+
         if(!post.id){
+          post.creationDate=this.getCurrentDate();
+          post.updateDate=this.getCurrentDate();
           return this.httpClient.post(BASE_URL_POSTS,post).pipe(
             catchError(error => this.handleError(error))
           );
         }
         else{
-          return this.httpClient.post(BASE_URL_POSTS+post.id,post).pipe(
+          post.updateDate=this.getCurrentDate();
+          return this.httpClient.put(BASE_URL_POSTS+post.id,post).pipe(
             catchError(error => this.handleError(error))
           );
         }
@@ -43,4 +48,9 @@ export class PostService{
 		console.error(error);
 		return Observable.throw('Server error (' + error.status + '): ' + error.text())
 	}
+  getCurrentDate(){
+    let date=new Date();
+    let latest_date=this.datePipe.transform(date,'dd/MM/yy');
+    return latest_date;
+  }
 }

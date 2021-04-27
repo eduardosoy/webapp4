@@ -18,13 +18,14 @@ import { LoginComponent } from './login/login.component';
 import { RegisterComponent } from './register/register.component';
 import { ProfileComponent } from './profile/profile.component';
 import { AdminUpdatesComponent } from './adminUpdates/adminUpdates.component';
+import { DatePipe } from '@angular/common';
 
 @NgModule({
-  declarations: [AppComponent,HeaderComponent,FooterComponent, GamePageComponent, IndexPageComponent, 
-    GameStatisticsComponent, CreatePostComponent ,ListPostsComponent,  ExpandedPostComponent, 
+  declarations: [AppComponent,HeaderComponent,FooterComponent, GamePageComponent, IndexPageComponent,
+    GameStatisticsComponent, CreatePostComponent ,ListPostsComponent,  ExpandedPostComponent,
     PostButtonComponent, EditPostComponent, LoginComponent, RegisterComponent, ProfileComponent,AdminUpdatesComponent],
   imports: [BrowserModule, FormsModule, HttpClientModule, routing],
-  providers: [],
-  bootstrap: [AppComponent] 
+  providers: [DatePipe],
+  bootstrap: [AppComponent]
 })
 export class AppModule { }
