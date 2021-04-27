@@ -23,4 +23,6 @@ export class AdminUpdatesComponent {
       }
     );
   }
+  gotoEditGame(id:number) {this.router.navigate(['editGame/'+id]);}
+  gotoNewGame() {this.router.navigate(['newGame']);}
 }

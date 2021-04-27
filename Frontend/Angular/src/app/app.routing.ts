@@ -12,12 +12,16 @@ import { RegisterComponent } from './register/register.component';
 import { AdminUpdatesComponent } from './adminUpdates/adminUpdates.component';
 import { ProfileComponent } from './profile/profile.component';
 import { SubscriptionsComponent } from './subscriptions/subscriptions.component';
+import { EditGameComponent } from './adminUpdates/editGame/editGame.component';
+import { NewGameComponent } from './adminUpdates/newGame/newGame.component';
 
 const appRoutes = [
 
     { path: 'games/:id', component: GamePageComponent },
     { path: 'index', component: IndexPageComponent },
     { path: 'adminUpdates', component: AdminUpdatesComponent },
+    { path: 'editGame/:id', component: EditGameComponent},
+    { path: 'newGame', component: NewGameComponent},
     { path: 'statistics/:id', component: GameStatisticsComponent },
     { path: '', redirectTo: 'index', pathMatch: 'full' },
     { path: 'listPosts/types',component:ListPostsComponent},
