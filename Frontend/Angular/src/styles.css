@@ -127,12 +127,13 @@ body {
   .listText{
     color:black;
   }
-  .btn{
+  .btn4{
     background-color: 343a40; 
     border-radius: 5px; 
     margin: 2px; color: white;
   }
   .btn2{
+    padding-top: 10px;
     background-color: #28a745; 
     border-radius: 5px; 
     margin: 2px; color: white;
