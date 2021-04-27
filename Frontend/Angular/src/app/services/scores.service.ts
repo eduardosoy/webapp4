@@ -18,8 +18,8 @@ getScoresById(id: number): Observable<Map<number,number>>{
   doAverageRatio( myScores:Map<number,number>, index: Number ){
     let aux = 0;
     let numberofindexinthearray= 0;
-    for (let key of myScores.keys()) {
-        if (key.valueOf()==index){
+    for (let value of myScores.values()) {
+        if (value.valueOf()==index){
             numberofindexinthearray++;
             }
       }

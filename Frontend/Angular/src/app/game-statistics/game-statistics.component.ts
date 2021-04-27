@@ -11,7 +11,8 @@ import { ScoresService } from '../services/scores.service';
 export class GameStatisticsComponent  {
   game:Game;
   id:number;
-  myScores: Map<number,number>;
+  myScores = new Map();
+  myScoresObj = new Object();
   stars1:number;
   stars2:number;
   stars3:number;
@@ -27,17 +28,24 @@ export class GameStatisticsComponent  {
   ngOnInit(): void {
     this.getGame();
     this.getMap();
-    this.showStars();
+    //this.showStars();
   }
+  flushMap(myScoresObj: Object) {
+    for (var [key, value] of Object.entries(myScoresObj)) {
+      this.myScores.set(key,value); 
+  }
+  }
+  
+  
   getMap(){
     this.scoresService.getScoresById(this.id).subscribe(
-      myScores => {
-        this.myScores = myScores as Map<number,number>;
+      myScoresObj => {
+        this.myScoresObj = myScoresObj as Object;
       }
     );
   }
   showStars():void{
-    
+    this.flushMap(this.myScoresObj);
     this.stars1=this.scoresService.doAverageRatio(this.myScores,1);
     this.stars2=this.scoresService.doAverageRatio(this.myScores,2);
     this.stars3=this.scoresService.doAverageRatio(this.myScores,3);
