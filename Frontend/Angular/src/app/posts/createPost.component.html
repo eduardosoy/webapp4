@@ -14,15 +14,27 @@
               <p>Portada:</p>
                   <input type='file' name='imageField' accept=".jpg, .jpeg"/>
               <div class="form-input">
-                <input type="text" name="title" placeholder="Titulo Post">
+                <input type="text" [(ngModel)]="post.title" name="title" placeholder="Titulo Post">
               </div>
               <div class="form-input">
-                <textarea name='postText' rows=20 cols=40></textarea>
+                <textarea name='postText' [(ngModel)]="post.postText" rows=20 cols=40></textarea>
               </div>
-
+              <div class="form-input">
+                <div class="wrap">
+                  <input list="postTypes" [(ngModel)]="post.postType" name="newType" type="text"
+                      placeholder="Escoge la categoría">
+                  <datalist id="postTypes">
+                      <option value="Guides"></option>
+                      <option value="News"></option>
+                      <option value="Updates"></option>
+                  </datalist>
+              </div>
+                </div>
               <div class="form-input">
                 <input type="hidden" name="_csrf"/>
-                <input type="submit" value="Create Post">
+                <!--<input type="submit" value="Create Post">-->
+                <button (click)="createPost()">Crea el post!</button>
+
 
               </div>
               <input type="hidden" name="_csrf"/>
