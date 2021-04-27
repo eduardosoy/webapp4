@@ -11,6 +11,7 @@ import { LoginComponent } from './login/login.component';
 import { RegisterComponent } from './register/register.component';
 import { AdminUpdatesComponent } from './adminUpdates/adminUpdates.component';
 import { ProfileComponent } from './profile/profile.component';
+import { SubscriptionsComponent } from './subscriptions/subscriptions.component';
 
 const appRoutes = [
 
@@ -25,7 +26,8 @@ const appRoutes = [
     { path: 'editPost/:id',component:EditPostComponent},
     { path: 'login',component:LoginComponent},
     { path: 'register',component:RegisterComponent},
-    { path: 'profile',component:ProfileComponent}
+    { path: 'profile/:id',component:ProfileComponent},
+    { path: 'subscriptions',component:SubscriptionsComponent}
 ];
 
 export const routing = RouterModule.forRoot(appRoutes);

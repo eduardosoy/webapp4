@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
+import { UserService } from '../services/user.service';
 
 @Component({
   selector: 'header',
@@ -13,5 +14,5 @@ export class HeaderComponent {
   gotoIndex() {this.router.navigate(['index']);}
   gotoLogin() {this.router.navigate(['login']);}
   gotoRegister() {this.router.navigate(['register']);}
-  gotoProfile() {this.router.navigate(['profile']);}
+  gotoProfile() {this.router.navigate(['profile/146']);}
 }

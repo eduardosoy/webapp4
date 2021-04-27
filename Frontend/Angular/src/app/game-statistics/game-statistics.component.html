@@ -1,21 +1,23 @@
 <div class="container container-white">
     <h1>Estadísticas de {{game.gameTitle}}</h1>
+    <p><button (click)="showStars()">actualizar estrellas</button></p>
     <div class="row">
         <div class="col-lg-4">
             <img src="{{game.imagePath}}" width="375" height="525"> 
             <h4 style="text-align: center;">Valoracion media de {{game.gameTitle}} es {{game.averageScore}}</h4>  
         </div>
+        
         <div class="col-lg-8">
             <h4 style="text-align: center;">Valoraciones</h4>  
             <div class="chart-wrap vertical"style="padding-top: 150px;">
                 
                 <div class="grid">
                    
-                    <div class="bar" style="--bar-value:20%; background-color: #d60f0f;" data-name="★" ></div>
-                    <div class="bar" style="--bar-value:40%; background-color: #fca504;" data-name="★★" ></div>
-                    <div class="bar" style="--bar-value:10%; background-color: #eeff00;" data-name="★★★" ></div>
-                    <div class="bar" style="--bar-value:13%; background-color: #3bec18;" data-name="★★★★" ></div>
-                    <div class="bar" style="--bar-value:45%; background-color: #18af3b;" data-name="★★★★★" ></div>  
+                    <div class="bar" style="--bar-value:{{stars1}}%; background-color: #d60f0f;" data-name="★" ></div>
+                    <div class="bar" style="--bar-value:{{stars2}}%; background-color: #fca504;" data-name="★★" ></div>
+                    <div class="bar" style="--bar-value:{{stars3}}%; background-color: #eeff00;" data-name="★★★" ></div>
+                    <div class="bar" style="--bar-value:{{stars4}}%; background-color: #3bec18;" data-name="★★★★" ></div>
+                    <div class="bar" style="--bar-value:{{stars5}}%; background-color: #18af3b;" data-name="★★★★★" ></div>  
                     
                 </div>
               
@@ -26,4 +28,3 @@
     </div>
     
 </div>
-<p><button (click)="returnIndex()">volver al Index</button></p>
