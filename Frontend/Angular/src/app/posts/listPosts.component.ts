@@ -13,7 +13,10 @@ export class ListPostsComponent{
   posts: Post[]=[];
   typeString="";
   constructor(private router: Router, activatedRoute:ActivatedRoute,private pService:PostService) {
-    this.pService.getAllPosts().subscribe(
+    let id = activatedRoute.snapshot.queryParams['gameID']
+    let theType=activatedRoute.snapshot.queryParams['theType'];
+    let numPage=activatedRoute.snapshot.queryParams['numPage'];
+    this.pService.getPostsFromGame(id,theType,numPage).subscribe(
       posts=>{
         this.posts=posts as Post[];
 

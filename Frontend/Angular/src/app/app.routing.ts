@@ -10,20 +10,24 @@ import { EditPostComponent } from './posts/editPost.component';
 import { LoginComponent } from './login/login.component';
 import { RegisterComponent } from './register/register.component';
 import { AdminUpdatesComponent } from './adminUpdates/adminUpdates.component';
+import { ProfileComponent } from './profile/profile.component';
+import { SubscriptionsComponent } from './subscriptions/subscriptions.component';
 
 const appRoutes = [
-    
-    { path: 'games', component: GamePageComponent },
+
+    { path: 'games/:id', component: GamePageComponent },
     { path: 'index', component: IndexPageComponent },
     { path: 'adminUpdates', component: AdminUpdatesComponent },
     { path: 'statistics/:id', component: GameStatisticsComponent },
     { path: '', redirectTo: 'index', pathMatch: 'full' },
-    { path: 'listPosts',component:ListPostsComponent},
+    { path: 'listPosts/types',component:ListPostsComponent},
     { path: 'listPosts/:id',component:ExpandedPostComponent},
     { path: 'newPost',component:CreatePostComponent},
     { path: 'editPost/:id',component:EditPostComponent},
     { path: 'login',component:LoginComponent},
-    { path: 'register',component:RegisterComponent}
+    { path: 'register',component:RegisterComponent},
+    { path: 'profile/:id',component:ProfileComponent},
+    { path: 'subscriptions',component:SubscriptionsComponent}
 ];
 
 export const routing = RouterModule.forRoot(appRoutes);

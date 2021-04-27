@@ -9,5 +9,5 @@ export interface Game {
     imagePath: String;
     description: String;
     Chat: Chat;
-    MapScores: Map<number, number>;
+    mapScores: Map<number, number>;
 }

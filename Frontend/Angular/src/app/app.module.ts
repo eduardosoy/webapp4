@@ -14,16 +14,14 @@ import { PostButtonComponent } from './posts/postButton.component';
 import { ExpandedPostComponent } from './posts/expandedPost.component';
 import { CreatePostComponent } from './posts/createPost.component';
 import { EditPostComponent } from './posts/editPost.component';
-
-import { AdminUpdatesComponent } from './adminUpdates/adminUpdates.component';
 import { LoginComponent } from './login/login.component';
 import { RegisterComponent } from './register/register.component';
-
+import { ProfileComponent } from './profile/profile.component';
 
 @NgModule({
   declarations: [AppComponent,HeaderComponent,FooterComponent, GamePageComponent, IndexPageComponent, 
     GameStatisticsComponent, CreatePostComponent ,ListPostsComponent,  ExpandedPostComponent, 
-    PostButtonComponent, EditPostComponent, LoginComponent, RegisterComponent,AdminUpdatesComponent],
+    PostButtonComponent, EditPostComponent, LoginComponent, RegisterComponent, ProfileComponent],
   imports: [BrowserModule, FormsModule, HttpClientModule, routing],
   providers: [],
   bootstrap: [AppComponent] 
