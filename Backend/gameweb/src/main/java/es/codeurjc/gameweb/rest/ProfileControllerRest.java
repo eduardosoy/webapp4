@@ -3,13 +3,15 @@ package es.codeurjc.gameweb.rest;
 import java.io.IOException;
 import java.net.MalformedURLException;
 import java.net.URI;
+import java.security.Principal;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Optional;
  
 import javax.imageio.IIOException;
- 
+import javax.servlet.http.HttpServletRequest;
+
 import com.fasterxml.jackson.annotation.JsonView;
 
 import org.hibernate.engine.jdbc.BlobProxy;
@@ -146,5 +148,17 @@ public class ProfileControllerRest {
             return ResponseEntity.notFound().build();
         }
     }
+
+    @GetMapping("/me")
+	public ResponseEntity<User> me(HttpServletRequest request) {
+		
+		Principal principal = request.getUserPrincipal();
+		
+		if(principal != null) {
+			return ResponseEntity.ok(userService.findByName(principal.getName()).orElseThrow());
+		} else {
+			return ResponseEntity.notFound().build();
+		}
+	}
  
 }
