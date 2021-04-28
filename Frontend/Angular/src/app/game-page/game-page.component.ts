@@ -13,6 +13,7 @@ export class GamePageComponent {
 
 game:Game;
 id:number;
+
 logged:boolean;
 
   constructor(private router: Router, activatedRoute:ActivatedRoute, private gameService: GameService, public loginService: LoginService) {
@@ -21,7 +22,7 @@ logged:boolean;
   }
   ngOnInit(): void {
     this.getGame();
-    this.logged=true;//no funciona de momento
+    this.logged=this.loginService.isLogged();//no funciona de momento
   }
     getGame(){
       this.gameService.getGameById(this.id).subscribe(
@@ -32,8 +33,14 @@ logged:boolean;
     }
    
     valorar(valoracion:number){
-      this.gameService.setScoreById(this.id,valoracion);
-      this.gotoSuccessPage(/*'Has valorado '+this.game.gameTitle+' con un '+ valoracion + ' con éxito'*/);
+      
+      this.gameService.setScoreById(this.id,valoracion).subscribe(
+        score=>{
+          this.gotoSuccessPage();
+        },
+        error => console.error(error)
+      )
+      
     }
     
    returnIndex() {this.router.navigate(['index']);}
