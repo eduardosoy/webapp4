@@ -30,9 +30,12 @@ export class ProfileComponent {
       gotoSubscriptions(){
         {this.router.navigate(['subscriptions']);}
       }
-
+      gotoIndex(){
+        {this.router.navigate(['index']);}
+      }
       logOut() {
         this.loginService.logOut();
+        this.gotoIndex();
       }
 
 }

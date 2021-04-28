@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { HttpClient, HttpHeaders,HttpParams  } from '@angular/common/http';
 import { Game } from '../models/game.model';
 import { Observable } from 'rxjs';
 import { catchError } from 'rxjs/operators';
@@ -23,7 +23,8 @@ const BASE_URL: string = 'api/games/';
     }
   
     setScoreById(id: number,stars:number) {
-      return this.httpClient.post(BASE_URL + id + '/scores', stars).pipe(			
+      const params=new HttpParams().set('stars',stars.toString())
+      return this.httpClient.post(BASE_URL + id + '/scores', params).pipe(			
         catchError(error => this.handleError(error))
       ) as Observable<Game>;
     }
