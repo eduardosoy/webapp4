@@ -7,6 +7,6 @@ export interface Post{
   updateDate:string,
   fromGameID:number,
   postText:string,
-  postType:PostType,
+  postType:string,
   imagePath:string
 }

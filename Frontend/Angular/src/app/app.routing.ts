@@ -1,3 +1,4 @@
+import { GameListComponent } from './adminUpdates/gameList.component';
 import { Routes, RouterModule } from '@angular/router';
 import { GamePageComponent } from './game-page/game-page.component';
 import { GameStatisticsComponent } from './game-statistics/game-statistics.component';
@@ -19,6 +20,7 @@ import { SuccessPageComponent } from './success-page/success-page.component';
 const appRoutes = [
 
     { path: 'games/:id', component: GamePageComponent },
+    { path: 'gameList',component: GameListComponent},
     { path: 'index', component: IndexPageComponent },
     { path: 'adminUpdates', component: AdminUpdatesComponent },
     { path: 'editGame/:id', component: EditGameComponent},
