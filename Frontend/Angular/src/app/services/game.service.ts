@@ -22,12 +22,12 @@ const BASE_URL: string = 'api/games/';
       ) as Observable<Game[]>;
     }
   
-  /*  setScoreById(id: number,stars:number) {
-      return this.httpClient.post(BASE_URL + id).pipe(			
+    setScoreById(id: number,stars:number) {
+      return this.httpClient.post(BASE_URL + id + '/scores', stars).pipe(			
         catchError(error => this.handleError(error))
       ) as Observable<Game>;
     }
-*/
+   
     private handleError(error: any) {
 		console.error(error);
 		return Observable.throw('Server error (' + error.status + '): ' + error.text())

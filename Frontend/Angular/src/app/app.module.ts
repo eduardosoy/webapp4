@@ -19,11 +19,12 @@ import { RegisterComponent } from './register/register.component';
 import { ProfileComponent } from './profile/profile.component';
 import { AdminUpdatesComponent } from './adminUpdates/adminUpdates.component';
 import { DatePipe } from '@angular/common';
+import { SuccessPageComponent } from './success-page/success-page.component';
 
 @NgModule({
   declarations: [AppComponent,HeaderComponent,FooterComponent, GamePageComponent, IndexPageComponent,
     GameStatisticsComponent, CreatePostComponent ,ListPostsComponent,  ExpandedPostComponent,
-    PostButtonComponent, EditPostComponent, LoginComponent, RegisterComponent, ProfileComponent,AdminUpdatesComponent],
+    PostButtonComponent, EditPostComponent, LoginComponent, RegisterComponent, ProfileComponent,AdminUpdatesComponent, SuccessPageComponent],
   imports: [BrowserModule, FormsModule, HttpClientModule, routing],
   providers: [DatePipe],
   bootstrap: [AppComponent]

@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Game } from '../models/game.model';
 import { GameService } from '../services/game.service';
+import { LoginService } from '../services/login.service';
 
 @Component({
   selector: 'app-game-page',
@@ -12,12 +13,15 @@ export class GamePageComponent {
 
 game:Game;
 id:number;
-  constructor(private router: Router, activatedRoute:ActivatedRoute, private gameService: GameService) {
+logged:boolean;
+
+  constructor(private router: Router, activatedRoute:ActivatedRoute, private gameService: GameService, private loginService: LoginService) {
     let id = activatedRoute.snapshot.params['id'];
     this.id = id;
   }
   ngOnInit(): void {
     this.getGame();
+    this.logged=true;//no funciona de momento
   }
     getGame(){
       this.gameService.getGameById(this.id).subscribe(
@@ -28,10 +32,14 @@ id:number;
     }
    
     valorar(valoracion:number){
-      
+      this.gameService.setScoreById(this.id,valoracion);
+      this.gotoSuccessPage(/*'Has valorado '+this.game.gameTitle+' con un '+ valoracion + ' con éxito'*/);
     }
     
    returnIndex() {this.router.navigate(['index']);}
+   gotoSuccessPage() {this.router.navigate(['successPage']);}
    gotoGameStats(id:number) {this.router.navigate(['statistics/'+id]);}
    gotoListPosts(id:number,postType,numPage:string){this.router.navigate(['listPosts/types'],{queryParams:{gameID:id,theType:postType,numPage:numPage}})}
 }
+
+

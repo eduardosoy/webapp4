@@ -14,6 +14,7 @@ import { ProfileComponent } from './profile/profile.component';
 import { SubscriptionsComponent } from './subscriptions/subscriptions.component';
 import { EditGameComponent } from './adminUpdates/editGame/editGame.component';
 import { NewGameComponent } from './adminUpdates/newGame/newGame.component';
+import { SuccessPageComponent } from './success-page/success-page.component';
 
 const appRoutes = [
 
@@ -31,6 +32,7 @@ const appRoutes = [
     { path: 'login',component:LoginComponent},
     { path: 'register',component:RegisterComponent},
     { path: 'profile/:id',component:ProfileComponent},
+    { path: 'successPage',component:SuccessPageComponent},
     { path: 'subscriptions',component:SubscriptionsComponent}
 ];
 
