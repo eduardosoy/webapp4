@@ -68,7 +68,7 @@
         <!-- else -->
        
       
-    <div class="row" *ngIf="!logged">
+    <div class="row" *ngIf="loginService.isLogged()">
         <div class="col-lg-6">
             <img src="{{game.imagePath}}" width="375" height="525">
 
@@ -118,7 +118,7 @@
                       <a (click)="gotoGameStats(game.id)" class="btn" role="button">Estadísticas</a>
                   </li>
 
-            <div class="row" *ngIf="logged">
+            <div class="row" *ngIf="loginService.isLogged()">
                 <li class="nav-item">
                     <!--  {{#canSub}}-->
                       <form action="placeholder">

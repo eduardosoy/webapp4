@@ -15,7 +15,7 @@ game:Game;
 id:number;
 logged:boolean;
 
-  constructor(private router: Router, activatedRoute:ActivatedRoute, private gameService: GameService, private loginService: LoginService) {
+  constructor(private router: Router, activatedRoute:ActivatedRoute, private gameService: GameService, public loginService: LoginService) {
     let id = activatedRoute.snapshot.params['id'];
     this.id = id;
   }
