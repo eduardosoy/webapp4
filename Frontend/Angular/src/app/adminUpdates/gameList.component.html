@@ -1,0 +1,55 @@
+<div class="container container-white">
+    <div class="row">
+      <div class="col-lg-9 col-md-8 col-sm-8 ">
+        <h1 class="my-4">Juegos</h1>
+        <div class="row" id="gamesZone" *ngFor="let game of games">
+          <div class="col-lg-3 col-md-4 col-sm-6">
+            <div class="card h-100">
+              <a (click)="gotoGamePage(game.id)"><img class="card-img-top" src="{{game.imagePath}}"  alt=""></a>
+              <div class="card-body">
+                <h6 class="card-title links">
+                  <a (click)="gotoGamePage(game.id)" class="links">{{game.gameTitle}}</a>
+                </h6>
+                <!--<p class="card-text">descipcion corta que ya veremos como la ponemos si la ponemos</p>-->
+              </div>
+              <div class="card-footer">
+                <small class="text-muted">{{game.averageScore}} ★</small>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div id="loadZone"></div>
+        <div class="row">
+          <div class="col-lg-12 col-md-12 mb-12" style="align-items: center; width:100%">
+            <div class="card-body">
+              <div class="card h-100">
+                  <button class="btn btn-info" id="loadMore">Mostrar Más</button>
+              </div>
+
+            </div>
+          </div>
+        </div>
+        <!-- /.row -->
+      </div>
+      <!-- /.col-lg-9 -->
+      <div class="col-lg-3 col-md-4 col-sm-4">
+        <h1 class="my-4">Categorias</h1>
+        <div class="container" style="margin: 10px;">
+
+          <form method="post" enctype="multipart/form-data">
+          <input type="checkbox" name="Horror" > Horror<br>
+          <input type="checkbox" name="Shooter" > Shooter<br>
+          <input type="checkbox" name="Action"> Action<br>
+          <input type="checkbox" name="Plataformer"> Plataformer<br>
+          <input type="checkbox" name="Sports"> Sports<br>
+          <input type="checkbox" name="Puzzles"> Puzzles<br>
+          <input type="checkbox" name="Narrative"> Narrative<br>
+          <input type="checkbox" name="RPG"> RPG<br>
+          <input type='submit' value='Buscar'/>
+        </form>
+        </div>
+      </div>
+      <!-- /.col-lg-3 -->
+    </div>
+    <!-- /.row -->
+  </div>

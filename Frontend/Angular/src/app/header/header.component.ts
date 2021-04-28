@@ -18,4 +18,6 @@ export class HeaderComponent {
   gotoLogin() {this.router.navigate(['login']);}
   gotoRegister() {this.router.navigate(['register']);}
   gotoProfile() {this.router.navigate(['profile/'+this.loginService.user.id]);}
+  gotoAdminUpdates() {this.router.navigate(['adminUpdates']);}
+  gotoGameList() {this.router.navigate(['gameList']);}
 }

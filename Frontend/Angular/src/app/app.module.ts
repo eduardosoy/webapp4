@@ -1,3 +1,4 @@
+import { GameListComponent } from './adminUpdates/gameList.component';
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { BrowserModule } from '@angular/platform-browser';
@@ -24,7 +25,7 @@ import { SuccessPageComponent } from './success-page/success-page.component';
 @NgModule({
   declarations: [AppComponent,HeaderComponent,FooterComponent, GamePageComponent, IndexPageComponent,
     GameStatisticsComponent, CreatePostComponent ,ListPostsComponent,  ExpandedPostComponent,
-    PostButtonComponent, EditPostComponent, LoginComponent, RegisterComponent, ProfileComponent,AdminUpdatesComponent, SuccessPageComponent],
+    PostButtonComponent, EditPostComponent, LoginComponent, RegisterComponent, ProfileComponent,AdminUpdatesComponent, SuccessPageComponent,GameListComponent],
   imports: [BrowserModule, FormsModule, HttpClientModule, routing],
   providers: [DatePipe],
   bootstrap: [AppComponent]

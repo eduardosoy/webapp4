@@ -20,8 +20,7 @@ export class EditPostComponent{
    }
    editPost(){
     this.pService.createNewPost(this.post).subscribe(data => {
-      console.log('objeto cogio')
-      //enrutar a success page
+      this.router.navigate(['successPage']);
     },
     error => console.error('Error al crear el post '+error)
     );

@@ -22,7 +22,7 @@ export class ListPostsComponent{
 
       },
     )
-    //this.typeString=this.posts[0].postType.toString();
+    this.typeString=theType;
    }
   gotoExpandedPost(theID:number){
     this.router.navigate(['listPosts/'+theID])
