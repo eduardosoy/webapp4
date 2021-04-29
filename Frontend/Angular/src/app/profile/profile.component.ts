@@ -37,5 +37,12 @@ export class ProfileComponent {
         this.loginService.logOut();
         this.gotoIndex();
       }
+      editUser(){
+        this.userService.createNewUser(this.user).subscribe(data => {
+          this.router.navigate(['successPage']);
+        },
+        error => console.error('Error al crear el post '+error)
+        );
+      }
 
 }
