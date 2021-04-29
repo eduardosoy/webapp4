@@ -16,6 +16,7 @@ import { SubscriptionsComponent } from './subscriptions/subscriptions.component'
 import { EditGameComponent } from './adminUpdates/editGame/editGame.component';
 import { NewGameComponent } from './adminUpdates/newGame/newGame.component';
 import { SuccessPageComponent } from './success-page/success-page.component';
+import { SubsButtonComponent } from './subscriptions/subs-button/subs-button.component';
 
 const appRoutes = [
 

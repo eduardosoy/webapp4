@@ -21,16 +21,9 @@ export class UserService {
   }
 
   createNewUser(user: User) {
-    if (!user.id) {
-      return this.httpClient.post(BASE_URL, user).pipe(
-        catchError(error => this.handleError(error))
-      );
-    }
-    else {
-      return this.httpClient.post(BASE_URL + user.id, user).pipe(
-        catchError(error => this.handleError(error))
-      );
-    }
+    return this.httpClient.post(BASE_URL,user).pipe(
+      catchError(error => this.handleError(error))
+    ) as Observable<number[]>;
   }
 
   getSubscriptions(id:number): Observable<number[]> {
