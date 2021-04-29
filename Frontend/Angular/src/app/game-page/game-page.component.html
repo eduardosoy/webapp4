@@ -131,7 +131,7 @@
                                 </button>
                             </div>
                             <div *ngIf="logged && isSubscribe(game.id)">
-                                <button class="btn btn-secondary" type='submit' style="background-color: red;"
+                                <button (click)="unSubscribe(game.id)" class="btn btn-secondary" type='submit' style="background-color: red;"
                                     aria-haspopup="true" aria-expanded="false">
                                     Desuscribirse
                                 </button>

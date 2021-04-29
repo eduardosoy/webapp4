@@ -35,6 +35,13 @@ const BASE_URL: string = 'api/games/';
       ) as Observable <number[]>
 
     }
+
+    unSubscribeToGame(id: number){
+      return this.httpClient.put(BASE_URL + id +'/subscriptors',null).pipe(
+        catchError(error => this.handleError(error))
+      ) as Observable <number[]>
+
+    }
    
     private handleError(error: any) {
 		console.error(error);

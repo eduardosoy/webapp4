@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { Router } from '@angular/router';
 import { Game } from 'src/app/models/game.model';
 import { GameService } from 'src/app/services/game.service';
@@ -7,24 +7,12 @@ import { GameService } from 'src/app/services/game.service';
   selector: 'app-subs-button',
   templateUrl: './subs-button.component.html'
 })
-export class SubsButtonComponent implements OnInit {
-
-  game: Game
+export class SubsButtonComponent{
 
 	@Input()
-	gameId: number;
+	game: Game;
 
-	constructor(private router:Router,private gameService: GameService){
-		this.gameService.getGameById(this.gameId).subscribe(
-			game => {
-			  this.game = game as Game;
-			}
-		  );
-	}
-
-  ngOnInit(): void {
-    throw new Error('Method not implemented.');
-  }
+	constructor(private router:Router,public gameService: GameService){}
 
 	gotoGamePage(id:number) {this.router.navigate(['games/'+id]);}
 }

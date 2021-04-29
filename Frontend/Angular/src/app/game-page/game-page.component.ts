@@ -46,7 +46,7 @@ logged:boolean;
       
     }
 
-    isSubscribe(id:number){
+    isSubscribe(id: number){
       return this.myGames.includes(id);
     }
 
@@ -67,6 +67,17 @@ logged:boolean;
           this.myGames = games as number[];
         }
       )
+    }
+
+    unSubscribe(id: number){
+
+      this.gameService.unSubscribeToGame(this.game.id).subscribe(
+        subscriptions=>{
+          this.loginService.user.myGames = subscriptions as number[];
+        }
+      )
+
+      this.gotoSuccessPage();
     }
     
 
