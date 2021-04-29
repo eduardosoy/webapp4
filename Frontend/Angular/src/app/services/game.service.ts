@@ -28,6 +28,13 @@ const BASE_URL: string = 'api/games/';
         catchError(error => this.handleError(error))
       ) as Observable<Game>;
     }
+
+    subscribeToGame(id: number){
+      return this.httpClient.post(BASE_URL + id +'/subscriptors',null).pipe(
+        catchError(error => this.handleError(error))
+      ) as Observable <number[]>
+
+    }
    
     private handleError(error: any) {
 		console.error(error);

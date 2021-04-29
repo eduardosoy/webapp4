@@ -28,7 +28,6 @@ export class GameStatisticsComponent  {
   ngOnInit(): void {
     this.getGame();
     this.getMap();
-    //this.showStars();
   }
   flushMap(myScoresObj: Object) {
     for (var [key, value] of Object.entries(myScoresObj)) {
@@ -41,6 +40,7 @@ export class GameStatisticsComponent  {
     this.scoresService.getScoresById(this.id).subscribe(
       myScoresObj => {
         this.myScoresObj = myScoresObj as Object;
+        this.showStars();
       }
     );
   }

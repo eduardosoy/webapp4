@@ -9,14 +9,14 @@ import { UserService } from '../services/user.service';
   selector: 'app-subscriptions',
   templateUrl: './subscriptions.component.html'
 })
-export class SubscriptionsComponent {
-  myGames: number[] = [];
-  games: Game[] = [];
-  vacio = true;
+export class SubscriptionsComponent  {
+  myGames: number[];
+  games: Game[];
+  vacio: boolean;
 
   ngOnInit(): void {
     this.getSubscriptions();
-    this.isEmpty(); 
+    this.vacio = this.isEmpty(); 
   }
 
   constructor(private router: Router,public loginService: LoginService,public userService: UserService, private gameService: GameService){ }  
@@ -26,16 +26,9 @@ export class SubscriptionsComponent {
         this.myGames = myGames as number[];
       },
     ) 
-    for(let gameId of this.myGames){
-      this.gameService.getGameById(gameId).subscribe(
-        game=>{
-          this.games.push(game);
-        },
-      )
-    }
   }
 
   isEmpty(){
-      return this.myGames == null;
+      return this.myGames.length == 0;
   }
 }

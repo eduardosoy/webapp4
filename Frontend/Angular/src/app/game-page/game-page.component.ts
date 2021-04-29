@@ -46,6 +46,17 @@ logged:boolean;
     isSubscribe(id:number){
       return this.loginService.user.myGames.includes(id);
     }
+
+    subscribe(id: number){
+
+      this.gameService.subscribeToGame(this.game.id).subscribe(
+        subscriptions=>{
+          this.loginService.user.myGames = subscriptions as number[];
+        }
+      )
+
+      this.gotoSuccessPage();
+    }
     
 
    returnIndex() {this.router.navigate(['index']);}

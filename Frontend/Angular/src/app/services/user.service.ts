@@ -39,6 +39,8 @@ export class UserService {
     ) as Observable<number[]>;
   }
 
+  
+
 
   private handleError(error: any) {
     console.error(error);
