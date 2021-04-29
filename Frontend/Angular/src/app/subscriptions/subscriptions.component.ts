@@ -12,7 +12,7 @@ import { UserService } from '../services/user.service';
 export class SubscriptionsComponent {
   myGames: number[] = [];
   games: Game[] = [];
-  vacio = false;
+  vacio = true;
 
   ngOnInit(): void {
     this.getSubscriptions();
