@@ -3,6 +3,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { Game } from '../models/game.model';
 import { GameService } from '../services/game.service';
 import { LoginService } from '../services/login.service';
+import { UserService } from '../services/user.service';
 
 @Component({
   selector: 'app-game-page',
@@ -13,15 +14,17 @@ export class GamePageComponent {
 
 game:Game;
 id:number;
+myGames:number[];
 
 logged:boolean;
 
-  constructor(private router: Router, activatedRoute:ActivatedRoute, private gameService: GameService, public loginService: LoginService) {
+  constructor(private router: Router, activatedRoute:ActivatedRoute, private gameService: GameService, public loginService: LoginService, private userService: UserService) {
     let id = activatedRoute.snapshot.params['id'];
     this.id = id;
   }
   ngOnInit(): void {
     this.getGame();
+    this.getSubscriptions();
     this.logged=this.loginService.isLogged();//no funciona de momento
   }
     getGame(){
@@ -44,7 +47,7 @@ logged:boolean;
     }
 
     isSubscribe(id:number){
-      return this.loginService.user.myGames.includes(id);
+      return this.myGames.includes(id);
     }
 
     subscribe(id: number){
@@ -56,6 +59,14 @@ logged:boolean;
       )
 
       this.gotoSuccessPage();
+    }
+
+    getSubscriptions(){
+      this.userService.getSubscriptions(this.loginService.user.id).subscribe(
+        games=>{
+          this.myGames = games as number[];
+        }
+      )
     }
     
 
