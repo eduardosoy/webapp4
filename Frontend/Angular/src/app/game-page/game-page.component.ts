@@ -42,6 +42,14 @@ logged:boolean;
       )
       
     }
+
+    isSubscribe(id:number){
+      if(this.loginService.user.myGames.includes(id)){
+        return true;
+      }
+      return false;
+    }
+    
     
    returnIndex() {this.router.navigate(['index']);}
    gotoSuccessPage() {this.router.navigate(['successPage']);}

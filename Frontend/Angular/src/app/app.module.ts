@@ -21,11 +21,15 @@ import { ProfileComponent } from './profile/profile.component';
 import { AdminUpdatesComponent } from './adminUpdates/adminUpdates.component';
 import { DatePipe } from '@angular/common';
 import { SuccessPageComponent } from './success-page/success-page.component';
+import { SubscriptionsComponent } from './subscriptions/subscriptions.component';
+import { SubsButtonComponent } from './subscriptions/subs-button/subs-button.component';
+
 
 @NgModule({
   declarations: [AppComponent,HeaderComponent,FooterComponent, GamePageComponent, IndexPageComponent,
     GameStatisticsComponent, CreatePostComponent ,ListPostsComponent,  ExpandedPostComponent,
-    PostButtonComponent, EditPostComponent, LoginComponent, RegisterComponent, ProfileComponent,AdminUpdatesComponent, SuccessPageComponent,GameListComponent],
+    PostButtonComponent, EditPostComponent, LoginComponent, RegisterComponent, 
+    ProfileComponent,AdminUpdatesComponent, SuccessPageComponent,GameListComponent, SubscriptionsComponent, SubsButtonComponent],
   imports: [BrowserModule, FormsModule, HttpClientModule, routing],
   providers: [DatePipe],
   bootstrap: [AppComponent]

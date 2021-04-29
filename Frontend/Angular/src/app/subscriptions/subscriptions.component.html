@@ -14,9 +14,9 @@
               <th></th>
             </tr>
           </thead>
-          <subButton *ngFor="let number of myGames" [number]="myGames"></subButton>
+          <app-subs-button *ngFor="let number of myGames" [number]="gameId"></app-subs-button>
         </table>
-        <h1 *ngIf="loginService.user.myGames == null" style="color: black;text-align: center;text-size-adjust: 20px; padding-top: 20px;">No hay subscripciones</h1>
+        <h1 *ngIf="vacio" style="color: black;text-align: center;text-size-adjust: 20px; padding-top: 20px;">No hay subscripciones</h1>
       </div>
       <!-- /.col-lg-12 -->
       <!-- /.row -->

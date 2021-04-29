@@ -68,7 +68,7 @@
         <!-- else -->
        
       
-    <div class="row" *ngIf="loginService.isLogged()">
+    <div class="row"*ngIf="!logged" >
         <div class="col-lg-6">
             <img src="{{game.imagePath}}" width="375" height="525">
 
