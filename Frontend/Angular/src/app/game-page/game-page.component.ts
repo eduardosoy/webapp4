@@ -44,13 +44,10 @@ logged:boolean;
     }
 
     isSubscribe(id:number){
-      if(this.loginService.user.myGames.includes(id)){
-        return true;
-      }
-      return false;
+      return this.loginService.user.myGames.includes(id);
     }
     
-    
+
    returnIndex() {this.router.navigate(['index']);}
    gotoSuccessPage() {this.router.navigate(['successPage']);}
    gotoGameStats(id:number) {this.router.navigate(['statistics/'+id]);}

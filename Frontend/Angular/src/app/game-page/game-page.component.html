@@ -118,17 +118,17 @@
                       <a (click)="gotoGameStats(game.id)" class="btn" role="button">Estadísticas</a>
                   </li>
 
-            <div class="row" *ngIf="loginService.isLogged()">
+            <div class="row" *ngIf="logged">
                 <li class="nav-item">
                     <!--  {{#canSub}}-->
-                      <form action="placeholder">
+                      <form action="placeholder" *ngIf="loginService.user.myGames.include(game.id)">
                           <button class="btn btn-secondary" type='submit'  aria-haspopup="true" aria-expanded="false">
                               Suscribirse
                           </button>
                       </form>
                      <!-- {{/canSub}}-->
                       <!--{{^canSub}}-->
-                      <form action="placeholder">
+                      <form action="placeholder" *ngIf="loginService.user.myGames.include(game.id)">
                           <button class="btn btn-secondary" type='submit' style="background-color: red;"  aria-haspopup="true" aria-expanded="false">
                               Desuscribirse
                           </button>

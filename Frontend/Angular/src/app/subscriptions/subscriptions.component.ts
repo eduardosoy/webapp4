@@ -10,8 +10,8 @@ import { UserService } from '../services/user.service';
   templateUrl: './subscriptions.component.html'
 })
 export class SubscriptionsComponent {
-  myGames: number[];
-  games: Game[];
+  myGames: number[] = [];
+  games: Game[] = [];
   vacio = false;
 
   ngOnInit(): void {
@@ -25,7 +25,14 @@ export class SubscriptionsComponent {
       myGames=>{
         this.myGames = myGames as number[];
       },
-    )  
+    ) 
+    for(let gameId of this.myGames){
+      this.gameService.getGameById(gameId).subscribe(
+        game=>{
+          this.games.push(game);
+        },
+      )
+    }
   }
 
   isEmpty(){
