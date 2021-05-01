@@ -32,7 +32,7 @@ export class GameStatisticsComponent  {
   flushMap(myScoresObj: Object) {
     for (var [key, value] of Object.entries(myScoresObj)) {
       this.myScores.set(key,value); 
-  }
+    }
   }
   
   
@@ -52,7 +52,7 @@ export class GameStatisticsComponent  {
     this.stars4=this.scoresService.doAverageRatio(this.myScores,4);
     this.stars5=this.scoresService.doAverageRatio(this.myScores,5);
   }
-//this.scoresService.doAverageRatio(this.myScores,1)
+
   getGame(){
     this.gameService.getGameById(this.id).subscribe(
       game => {
