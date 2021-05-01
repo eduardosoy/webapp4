@@ -9,8 +9,11 @@
         <p class="lead" id="mainAuthor">
           by {{post.author}}
         </p>
-        <button (click)="gotoEditPost()">Editar post</button>
-        <button (click)="gotoNewPost()">crear post</button>
+        <div *ngIf="logged">
+          <button (click)="gotoEditPost()">Editar post</button>
+          <button (click)="deleteThis()" style="background-color: red;">Borrar post</button>
+        </div>
+
         <hr>
 
         <!-- Date/Time -->

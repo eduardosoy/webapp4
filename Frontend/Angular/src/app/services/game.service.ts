@@ -40,7 +40,7 @@ const BASE_URL: string = 'api/games/';
     subscribeToGame(id: number){
       return this.httpClient.post(BASE_URL + id +'/subscriptors',null).pipe(
         catchError(error => this.handleError(error))
-      ) as Observable <number[]>
+      ) as Observable<number[]>
 
     }
 

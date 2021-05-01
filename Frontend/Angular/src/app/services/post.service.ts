@@ -27,6 +27,16 @@ export class PostService{
           catchError(error => this.handleError(error))
         ) as Observable<Post>;
     }
+    deletePostbyID(id:number){
+        return this.httpClient.delete(BASE_URL_POSTS+id).pipe(
+          catchError(error => this.handleError(error))
+        );
+    }
+    setPostImage(post:Post, formData:FormData){
+      return this.httpClient.post(BASE_URL_POSTS+post.id+"/images",formData).pipe(
+        catchError(error => this.handleError(error))
+      );
+    }
     createNewPost(post:Post){
 
         if(!post.id){

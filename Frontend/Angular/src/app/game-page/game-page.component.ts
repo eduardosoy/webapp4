@@ -3,6 +3,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { Chat } from '../models/chat.model';
 import { Game } from '../models/game.model';
 import { Message } from '../models/message.model';
+import { AlgorithmsService } from '../services/algorithms.service';
 import { ChatService } from '../services/chat.service';
 import { GameService } from '../services/game.service';
 import { LoginService } from '../services/login.service';
@@ -23,7 +24,7 @@ logged:boolean;
 messageSentToChat="";
 
 
-  constructor(private router: Router, activatedRoute:ActivatedRoute, private gameService: GameService, public loginService: LoginService, private userService: UserService, private chatService: ChatService) {
+  constructor(private router: Router, activatedRoute:ActivatedRoute,private algorithms:AlgorithmsService, private gameService: GameService, public loginService: LoginService, private userService: UserService, private chatService: ChatService) {
     let id = activatedRoute.snapshot.params['id'];
     this.id = id;
   }
@@ -52,15 +53,15 @@ messageSentToChat="";
     }
 
     setWritters(chat: Chat){
-      
+
       for (let i = 0; i < (chat.listMessages as Array<Message>).length; i++) {
         (chat.listMessages as Array<Message>)[i].isMessageWriter=(chat.listMessages as Array<Message>)[i].nameUser==(this.loginService.currentUser().info);
       }
     }
 
     sendMessage(){
-      
-      
+
+
       this.chatService.setNewMessage(this.id,this.messageSentToChat).subscribe(
         game=>{
           this.getChat();
@@ -68,20 +69,20 @@ messageSentToChat="";
         },
         error => console.error(error)
       )
-        
-      
+
+
     }
 
 
     value(valoration:number){
-      
+
       this.gameService.setScoreById(this.id,valoration).subscribe(
         score=>{
           this.gotoSuccessPage();
         },
         error => console.error(error)
       )
-      
+
     }
 
     isSubscribe(id: number){
@@ -93,6 +94,7 @@ messageSentToChat="";
       this.gameService.subscribeToGame(this.game.id).subscribe(
         subscriptions=>{
           this.loginService.user.myGames = subscriptions as number[];
+          this.algorithms.recommendedAlgorithm(this.loginService.user);
         }
       )
 
@@ -117,7 +119,7 @@ messageSentToChat="";
 
       this.gotoSuccessPage();
     }
-    
+
 
    returnIndex() {this.router.navigate(['index']);}
    gotoSuccessPage() {this.router.navigate(['successPage']);}
