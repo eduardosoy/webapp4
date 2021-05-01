@@ -1,5 +1,5 @@
 <div style="background-color: aliceblue;">
-  <h1>Stardew Valley: lista {{typeString}}</h1>
+  <h1>{{fromGameTitle}}: lista {{typeString}}</h1>
   <postButton *ngFor="let post of posts" [post]="post" (clicked)="gotoExpandedPost(post.id)"></postButton>
 </div>
 

@@ -3,6 +3,8 @@ import { PostButtonComponent } from './postButton.component';
 import { Post } from '../models/post.model';
 import { Component } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
+import { GameService } from '../services/game.service';
+import { Game } from '../models/game.model';
 
 @Component({
   selector: 'listPosts',
@@ -12,7 +14,8 @@ import { ActivatedRoute, Router } from '@angular/router';
 export class ListPostsComponent{
   posts: Post[]=[];
   typeString="";
-  constructor(private router: Router, activatedRoute:ActivatedRoute,private pService:PostService) {
+  fromGameTitle="";
+  constructor(private router: Router, activatedRoute:ActivatedRoute,private pService:PostService,private gameService: GameService) {
     let id = activatedRoute.snapshot.queryParams['gameID']
     let theType=activatedRoute.snapshot.queryParams['theType'];
     let numPage=activatedRoute.snapshot.queryParams['numPage'];
@@ -21,6 +24,12 @@ export class ListPostsComponent{
         this.posts=posts as Post[];
 
       },
+    )
+    this.gameService.getGameById(id).subscribe(
+      data =>{
+        let game=data as Game;
+        this.fromGameTitle=game.gameTitle.toString();
+      }
     )
     this.typeString=theType;
    }
