@@ -7,6 +7,7 @@ import { catchError } from 'rxjs/operators';
 const BASE_URL: string = 'api/profiles/';
 @Injectable({ providedIn: 'root' })
 export class UserService {
+
   constructor(private httpClient: HttpClient) { }
   getUserById(id: number): Observable<User> {
     return this.httpClient.get(BASE_URL + id).pipe(
@@ -32,7 +33,11 @@ export class UserService {
     ) as Observable<number[]>;
   }
 
-  
+  setUserImage(user:User, formData:FormData){
+    return this.httpClient.post(BASE_URL +user.id+"/images",formData).pipe(
+      catchError(error => this.handleError(error))
+    );
+  }
 
 
   private handleError(error: any) {
