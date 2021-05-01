@@ -1,3 +1,4 @@
+import { LoginService } from './../services/login.service';
 import { Post } from './../models/post.model';
 import { PostService } from './../services/post.service';
 import { Component, OnInit } from '@angular/core';
@@ -11,9 +12,9 @@ import { PostType } from '../enums/PostType';
 
 export class CreatePostComponent{
   post:Post;
-  constructor(private router: Router, activatedRoute:ActivatedRoute,private pService:PostService){
+  constructor(private router: Router, activatedRoute:ActivatedRoute,private pService:PostService,private loginService:LoginService){
     let id=activatedRoute.snapshot.params['id'];
-    this.post={title:'',author:'',creationDate:'',updateDate:'',fromGameID:id,imagePath:'',postText:'',postType:null};
+    this.post={title:'',author:this.loginService.user.info,creationDate:'',updateDate:'',fromGameID:id,imagePath:'',postText:'',theType:''};
   }
   createPost(){
     this.pService.createNewPost(this.post).subscribe(data => {

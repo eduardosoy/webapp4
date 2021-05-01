@@ -1,9 +1,9 @@
 <div class="container container-white">
     <div class="row">
-      <div class="col-lg-9 col-md-8 col-sm-8 ">
+      <div class="col-lg-8 col-md-8 col-sm-8 ">
         <h1 class="my-4">Juegos</h1>
-        <div class="row" id="gamesZone" *ngFor="let game of games">
-          <div class="col-lg-3 col-md-4 col-sm-6">
+        <div class="row" id="gamesZone">
+          <div class="col-lg-3 col-md-4 col-sm-6" *ngFor="let game of games">
             <div class="card h-100">
               <a (click)="gotoGamePage(game.id)"><img class="card-img-top" src="{{game.imagePath}}"  alt=""></a>
               <div class="card-body">
@@ -23,7 +23,7 @@
           <div class="col-lg-12 col-md-12 mb-12" style="align-items: center; width:100%">
             <div class="card-body">
               <div class="card h-100">
-                  <button class="btn btn-info" id="loadMore">Mostrar Más</button>
+                  <button class="btn btn-info" (click)="getMoreGames()">Mostrar Más</button>
               </div>
 
             </div>
@@ -36,17 +36,15 @@
         <h1 class="my-4">Categorias</h1>
         <div class="container" style="margin: 10px;">
 
-          <form method="post" enctype="multipart/form-data">
-          <input type="checkbox" name="Horror" > Horror<br>
-          <input type="checkbox" name="Shooter" > Shooter<br>
-          <input type="checkbox" name="Action"> Action<br>
-          <input type="checkbox" name="Plataformer"> Plataformer<br>
-          <input type="checkbox" name="Sports"> Sports<br>
-          <input type="checkbox" name="Puzzles"> Puzzles<br>
-          <input type="checkbox" name="Narrative"> Narrative<br>
-          <input type="checkbox" name="RPG"> RPG<br>
-          <input type='submit' value='Buscar'/>
-        </form>
+          <input type="checkbox" name="Horror" [(ngModel)]="filters[0]" > Horror<br>
+          <input type="checkbox" name="Shooter" [(ngModel)]="filters[1]"> Shooter<br>
+          <input type="checkbox" name="Action" [(ngModel)]="filters[2]"> Action<br>
+          <input type="checkbox" name="Plataformer" [(ngModel)]="filters[3]"> Plataformer<br>
+          <input type="checkbox" name="Sports" [(ngModel)]="filters[4]"> Sports<br>
+          <input type="checkbox" name="Puzzles" [(ngModel)]="filters[5]"> Puzzles<br>
+          <input type="checkbox" name="Narrative" [(ngModel)]="filters[6]"> Narrative<br>
+          <input type="checkbox" name="RPG" [(ngModel)]="filters[7]"> RPG<br>
+          <button (click)="searchWithFilters()">Busqueda con filtros</button>
         </div>
       </div>
       <!-- /.col-lg-3 -->
