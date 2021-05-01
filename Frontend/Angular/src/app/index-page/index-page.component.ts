@@ -26,6 +26,8 @@ export class IndexPageComponent  {
     this.gameService.getGames().subscribe(
       games => {
         this.games = games as Game[];
+        const items = this.games.slice(0, 8);
+        this.games=items;
       }
     );
   }
