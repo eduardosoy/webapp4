@@ -1,6 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
+import { Chat } from '../models/chat.model';
 import { Game } from '../models/game.model';
+import { Message } from '../models/message.model';
+import { ChatService } from '../services/chat.service';
 import { GameService } from '../services/game.service';
 import { LoginService } from '../services/login.service';
 import { UserService } from '../services/user.service';
@@ -14,30 +17,65 @@ export class GamePageComponent {
 
 game:Game;
 id:number;
+idChat:number;
 myGames:number[];
-
 logged:boolean;
+messageSentToChat="";
 
-  constructor(private router: Router, activatedRoute:ActivatedRoute, private gameService: GameService, public loginService: LoginService, private userService: UserService) {
+
+  constructor(private router: Router, activatedRoute:ActivatedRoute, private gameService: GameService, public loginService: LoginService, private userService: UserService, private chatService: ChatService) {
     let id = activatedRoute.snapshot.params['id'];
     this.id = id;
   }
   ngOnInit(): void {
     this.getGame();
     this.getSubscriptions();
-    this.logged=this.loginService.isLogged();//no funciona de momento
+    this.logged=this.loginService.isLogged();
   }
     getGame(){
       this.gameService.getGameById(this.id).subscribe(
         game => {
           this.game = game as Game;
+          this.getChat();
         }
       );
     }
-   
-    valorar(valoracion:number){
+    getChat(){
+      this.idChat=this.id;
+      this.idChat++;
+      this.chatService.getChatById(this.idChat).subscribe(
+        chat => {
+          this.game.Chat = chat as Chat;
+          this.setWritters(chat);
+        }
+      );
+    }
+
+    setWritters(chat: Chat){
       
-      this.gameService.setScoreById(this.id,valoracion).subscribe(
+      for (let i = 0; i < (chat.listMessages as Array<Message>).length; i++) {
+        (chat.listMessages as Array<Message>)[i].isMessageWriter=(chat.listMessages as Array<Message>)[i].nameUser==(this.loginService.currentUser().info);
+      }
+    }
+
+    sendMessage(){
+      
+      
+      this.chatService.setNewMessage(this.id,this.messageSentToChat).subscribe(
+        game=>{
+          this.getChat();
+          this.messageSentToChat="";
+        },
+        error => console.error(error)
+      )
+        
+      
+    }
+
+
+    value(valoration:number){
+      
+      this.gameService.setScoreById(this.id,valoration).subscribe(
         score=>{
           this.gotoSuccessPage();
         },
