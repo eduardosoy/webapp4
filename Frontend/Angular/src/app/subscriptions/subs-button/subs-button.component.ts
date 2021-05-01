@@ -15,7 +15,7 @@ export class SubsButtonComponent {
 	gameId: number;
 
 	constructor(private router: Router, public gameService: GameService, public loginService: LoginService) {
-		this.gameService.getGameById(1).subscribe(
+		this.gameService.getGameById(this.gameId).subscribe(
 			game => {
 				this.game = game as Game;
 			}
