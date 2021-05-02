@@ -1,6 +1,6 @@
   web:
-    image: eduardosoy7/4dgames
-    #build: .
+    #image: eduardosoy7/4dgames
+    build: .
     ports:
       - "8443:8443"
     links:

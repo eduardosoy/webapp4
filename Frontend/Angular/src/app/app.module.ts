@@ -23,13 +23,16 @@ import { DatePipe } from '@angular/common';
 import { SuccessPageComponent } from './success-page/success-page.component';
 import { SubscriptionsComponent } from './subscriptions/subscriptions.component';
 import { SubsButtonComponent } from './subscriptions/subs-button/subs-button.component';
+import { NewGameComponent } from './adminUpdates/newGame/newGame.component';
+import { EditGameComponent } from './adminUpdates/editGame/editGame.component';
 
 
 @NgModule({
   declarations: [AppComponent,HeaderComponent,FooterComponent, GamePageComponent, IndexPageComponent,
     GameStatisticsComponent, CreatePostComponent ,ListPostsComponent,  ExpandedPostComponent,
     PostButtonComponent, EditPostComponent, LoginComponent, RegisterComponent, 
-    ProfileComponent,AdminUpdatesComponent, SuccessPageComponent,GameListComponent, SubscriptionsComponent, SubsButtonComponent],
+    ProfileComponent,AdminUpdatesComponent, SuccessPageComponent,GameListComponent, SubscriptionsComponent, SubsButtonComponent,
+    NewGameComponent,EditGameComponent],
   imports: [BrowserModule, FormsModule, HttpClientModule, routing],
   providers: [DatePipe],
   bootstrap: [AppComponent]

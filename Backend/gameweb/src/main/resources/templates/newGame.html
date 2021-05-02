@@ -12,7 +12,7 @@
                 <textarea name='description' rows=10 cols=80></textarea>
                 <p></p>
                 <div class="wrap">
-                  <input list="colores" name="genre" type="text" placeholder="Categoría">
+                  <input list="colores" name="genre" type="text" placeholder="Categoría" [(ngModel)]="game.genre">
                   <datalist id="colores">
                       <option value="Horror"></option>
                       <option value="Shooter"></option>

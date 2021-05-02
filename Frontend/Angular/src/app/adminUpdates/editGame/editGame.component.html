@@ -18,20 +18,19 @@
                     <tr>
                         <td>
                             <img src="{{game.imagePath}}" class="responsive2" width="170" height="230">
-                            <input type='file' name='imageField' accept=".jpg, .jpeg"/>	
+                            <input #file type='file' name='imageField' accept=".jpg, .jpeg"/>	
                             <input type='checkbox' name='removeImage'> <label>Eliminar portada</label><br>
                         </td>
                         <td>
-                            <input type='text' value='{{game.gameTitle}}' name='gameTitle' />
-                            <input type="hidden" name="id" value="{{game.id}}" />
+                            <input type='text' value='{{game.gameTitle}}' name='gameTitle' [(ngModel)]="game.gameTitle"/>
+                            <input type="hidden" name="id" value="{{game.id}}" [(ngModel)]="game.id"/>
                         </td>
                         <td>
-                            <textarea name='description' rows=20 cols=40>{{game.description}}</textarea>
+                            <textarea name='description' rows=20 cols=40>{{game.description}} [(ngModel)]="game.description"</textarea>
                         </td>
                         <td>
                             <div class="wrap">
-                                <input list="categories" name="genre" value='{{game.genre}}' type="text"
-                                    placeholder="Categoría">
+                                <input list="categories" name="genre" value='{{game.genre}}' type="text" placeholder="Categoría"  [(ngModel)]="game.genre">
                                 <datalist id="categories">
                                     <option value="Horror"></option>
                                     <option value="Shooter"></option>
@@ -45,6 +44,7 @@
                             </div>
                         </td>
                     </tr>
+                    <button (click)="editGame()">Editar juego</button>
                 </tbody>
             </table>
             
