@@ -11,10 +11,8 @@
             </div>
             <!-- /.col-lg-4 -->
             <div class="col-lg-4">
-
                 <div class="container" style="margin: 10px;">
                     <div class="card h-100">
-
                         <div class="card-body">
                             <h4 class="card-title">
                                 <p>Descripción.</p>
@@ -31,7 +29,6 @@
                 <div>
                     <div class="main">
                         <div class="px-2 scroll">
-
                             <ng-template ngFor let-Message [ngForOf]="this.game.Chat.listMessages">
                                 <ng-template [ngIf]="Message.isMessageWriter">
 
@@ -64,19 +61,14 @@
                 </div>
             </div>
         </div>
-
         <!-- else -->
-
-
         <div class="row" *ngIf="!logged">
             <div class="col-lg-6">
-                <img src="{{game.imagePath}}" width="375" height="525">
-
+                <img src="{{game.imagePath}}" width="375" height="525" style="padding-left: 12px;">
                 <div class="container-fluid" id="usuario_comentario">
                     <!--comentario 1-->
                     <h1> {{game.averageScore}} ★</h1>
                 </div>
-
             </div>
             <!-- /.col-lg-6 -->
             <div class="col-lg-6">
@@ -161,15 +153,9 @@
                                 <!--
                         --><label for="radio5">★</label>
                             </div>
-
-
                         </li>
                     </div> <!-- {{/logged}}-->
-
-
-
                 </ul>
-
             </div>
         </nav>
     </div>

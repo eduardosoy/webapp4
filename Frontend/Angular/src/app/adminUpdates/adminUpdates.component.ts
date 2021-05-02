@@ -23,6 +23,11 @@ export class AdminUpdatesComponent {
       }
     );
   }
+  deleteThis(id:number){
+    this.gameService.deleteGamebyID(id).subscribe(
+      data =>{this.router.navigate(['successPage']);}
+    )
+  }
   gotoEditGame(id:number) {this.router.navigate(['editGame/'+id]);}
   gotoCreatePost(id:number) {this.router.navigate(['newPost/'+id]);}
   gotoNewGame() {this.router.navigate(['newGame']);}

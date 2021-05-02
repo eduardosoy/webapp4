@@ -5,6 +5,7 @@ import { Component, OnInit, ViewChild } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { PostType } from '../enums/PostType';
 
+
 @Component({
   selector: 'newPost',
   templateUrl: './createPost.component.html',

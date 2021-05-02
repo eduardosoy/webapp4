@@ -28,7 +28,7 @@
                 <div class="btn-group-vertical">
                   <a class="btn btn-info" (click)="gotoEditGame(game.id)" role="button">Editar</a>
                   <a class="btn btn-info" (click)="gotoCreatePost(game.id)" role="button">Crear post</a>
-                  <a class="btn btn-danger" href="/adminUpdates/delete/" role="button">Eliminar</a>
+                  <a class="btn btn-danger" (click)="deleteThis(game.id)" role="button">Eliminar</a>
                 </div>
               </td>
           </tr>

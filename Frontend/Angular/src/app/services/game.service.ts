@@ -54,5 +54,30 @@ const BASE_URL: string = 'api/games/';
     private handleError(error: any) {
 		console.error(error);
 		return Observable.throw('Server error (' + error.status + '): ' + error.text())
-	}
+	  }
+
+    createGame(game:Game){
+      if(!game.id){
+        return this.httpClient.post(BASE_URL,game).pipe(
+          catchError(error => this.handleError(error))
+        );
+      }
+      else{
+        return this.httpClient.put(BASE_URL+game.id,game).pipe(
+          catchError(error => this.handleError(error))
+        );
+      }
+  }
+  setGameImage(game: Game, formData:FormData){
+    return this.httpClient.post(BASE_URL+game.id+"/images",formData).pipe(
+      catchError(error => this.handleError(error))
+    );
+  }
+  deleteGamebyID(id:number){
+    return this.httpClient.delete(BASE_URL+id).pipe(
+      catchError(error => this.handleError(error))
+    );
+}
+
+
   }
