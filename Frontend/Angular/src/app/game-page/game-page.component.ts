@@ -18,8 +18,8 @@ export class GamePageComponent {
 
 game:Game;
 id:number;
-idChat:number;
 myGames:number[];
+idChat:number;
 logged:boolean;
 messageSentToChat="";
 
@@ -93,12 +93,11 @@ messageSentToChat="";
 
       this.gameService.subscribeToGame(this.game.id).subscribe(
         subscriptions=>{
-          this.loginService.user.myGames = subscriptions as number[];
+          this.gotoSuccessPage();
           this.algorithms.recommendedAlgorithm(this.loginService.user);
         }
       )
 
-      this.gotoSuccessPage();
     }
 
     getSubscriptions(){
@@ -113,11 +112,10 @@ messageSentToChat="";
 
       this.gameService.unSubscribeToGame(this.game.id).subscribe(
         subscriptions=>{
-          this.loginService.user.myGames = subscriptions as number[];
+          this.gotoSuccessPage();
         }
       )
 
-      this.gotoSuccessPage();
     }
 
 

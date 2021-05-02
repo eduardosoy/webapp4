@@ -1,13 +1,12 @@
-
-  <tr>
-    <td><img src="{{game.imagePath}}" width="170" height="230" style="margin-left: 20px;"
-        (click)="gotoGamePage(game.id)"></td>
-    <td>{{game.gameTitle}}</td>
-    <td>{{game.description}}</td>
-    <td>{{game.genre}}</td>
-    <td>
+<tbody>
+    <tr><img src="{{game.imagePath}}" width="170" height="230" style="margin-left: 20px;"
+        (click)="gotoGamePage(game.id)"></tr>
+    <tr>{{game.gameTitle}}</tr>
+    <tr>{{game.description}}</tr>
+    <tr>{{game.genre}}</tr>
+    <tr>
       <div class="btn-group-vertical">
         <input type="submit" class="btn btn-danger" value="Eliminar" (click)="unSubscribe(game.id)">
       </div>
-    </td>
-  </tr>
+    </tr>
+</tbody>
