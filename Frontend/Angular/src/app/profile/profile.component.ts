@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { User } from '../models/user.model';
 import { LoginService } from '../services/login.service';
@@ -11,6 +11,8 @@ import { UserService } from '../services/user.service';
 export class ProfileComponent {
   user:User;
   id:number;
+  @ViewChild("file")
+  file: any;
 
     constructor(private router: Router, activatedRoute:ActivatedRoute, private userService: UserService,public loginService: LoginService) {
       let id = activatedRoute.snapshot.params['id'];
@@ -45,4 +47,13 @@ export class ProfileComponent {
         );
       }
 
+      uploadUserImage(){
+        const image=this.file.nativeElement.files[0];
+        if(image){
+          let formData=new FormData();
+          formData.append("imageFile",image);
+          this.userService.setUserImage(this.user,formData);
+        }
+        this.router.navigate(['successPage']);
+      }
 }

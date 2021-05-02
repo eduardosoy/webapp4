@@ -4,8 +4,8 @@
             <form action="" method="post" enctype="multipart/form-data">
               <img src="{{user.imagePath}}" width="350" height="350" style="padding-top: 20px; margin-top: 10px; border-radius: 200px;">
               <div style="margin-top: 50px;">
-                <input type='file' [(ngModel)]="user.imagePath" name='image' accept=".jpg, .jpeg, .png"/>
-                <input type='submit' (click)="editUser()" value='Save'/>
+                <input #file type='file' name='imageFile' accept=".jpg, .jpeg"/>
+                <input type='submit' (click)="uploadUserImage()" value='Save'/>
               </div>
             </form>
           </div>
