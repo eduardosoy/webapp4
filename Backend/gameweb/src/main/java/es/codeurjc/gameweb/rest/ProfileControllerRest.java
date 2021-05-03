@@ -79,14 +79,17 @@ public class ProfileControllerRest {
     @PostMapping("/")
     public ResponseEntity<User> createUser(@RequestBody User user) throws IOException{
         user.setPassword(passwordEncoder.encode(user.getPassword()));
-        Resource image = (Resource) new ClassPathResource("/sample_images/user-image-default.jpg");
-        user.setImageFile(BlobProxy.generateProxy(image.getInputStream(), image.contentLength()));
+        user.setImage(true);
+        ArrayList<String> roles = new ArrayList<>();
+        roles.add("USER");
+        user.setRoles(roles);
+        String imgPath="https://localhost:8443/api/profiles/0/images";
+        user.setImagePath(imgPath);
         userService.save(user);     
         URI location = fromCurrentRequest().path("/{id}").buildAndExpand(user.getId()).toUri();
-        String imgPath="https://localhost:8443/api/profiles/"+user.getId()+"/images";
-        user.setImagePath(imgPath);
         return ResponseEntity.created(location).body(user);
     }
+
     @JsonView(userBasico.class)
     @PutMapping("/{id}")
     public ResponseEntity<User> editUser(@PathVariable long id, @RequestBody User newUser){

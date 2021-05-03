@@ -24,7 +24,7 @@ export class UserService {
   createNewUser(user: User) {
     return this.httpClient.post(BASE_URL,user).pipe(
       catchError(error => this.handleError(error))
-    ) as Observable<number[]>;
+    ) as Observable<User>;
   }
 
   getSubscriptions(id:number): Observable<number[]> {
