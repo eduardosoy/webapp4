@@ -11,6 +11,7 @@ import org.hibernate.engine.jdbc.BlobProxy;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.core.io.InputStreamResource;
 import org.springframework.core.io.Resource;
+import org.springframework.data.domain.PageRequest;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.DeleteMapping;
@@ -59,7 +60,7 @@ public class PostsControllerREST {
     }
     @JsonView(PostDetail.class)
     @GetMapping("/types")
-    public Collection<Post> getPostsOfType(@RequestParam String theType,@RequestParam int gameID){
+    public Collection<Post> getPostsOfType(@RequestParam String theType,@RequestParam int gameID,@RequestParam int numPage){
         Game myGame=gamePostService.findById(gameID).get();
         PostType type=null;
         switch(theType){
@@ -74,7 +75,7 @@ public class PostsControllerREST {
                 break;
         }
         ArrayList<Post> aux=new ArrayList<Post>();
-        List<Post> thePosts=pService.findPostOfGame(myGame);
+        List<Post> thePosts=pService.findPostOfGamePage(myGame,PageRequest.of(numPage, 4));
         for(Post p : thePosts){
             aux.add(p);
         }

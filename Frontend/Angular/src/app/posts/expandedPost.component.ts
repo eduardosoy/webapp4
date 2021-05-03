@@ -3,6 +3,8 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Post } from '../models/post.model';
 import { PostService } from '../services/post.service';
+import { Game } from '../models/game.model';
+import { AlgorithmsService } from '../services/algorithms.service';
 
 @Component({
   selector: 'post',
@@ -12,16 +14,31 @@ import { PostService } from '../services/post.service';
 export class ExpandedPostComponent{
   post:Post;
   logged:boolean;
-
-  constructor(private router: Router, activatedRoute:ActivatedRoute,private pService:PostService,private loginService:LoginService) {
+  listText=""
+  recommendedGames:Game[]=[]
+  constructor(private router: Router, activatedRoute:ActivatedRoute,private algoServ:AlgorithmsService,private pService:PostService,private loginService:LoginService) {
     let id = activatedRoute.snapshot.params['id'];
     this.pService.getPostByID(id).subscribe(
       post=>{
         this.post=post as Post;
       }
     )
-    this.logged=this.loginService.isAdmin();
+    this.logged=
+    this.loginService.isAdmin();
    }
+   ngOnInit(){
+    this.getRecommendedGames();
+   }
+   getRecommendedGames(){
+    this.recommendedGames=this.algoServ.arrayGames
+    console.log(this.algoServ.arrayGames)
+    if(this.recommendedGames.length==0){
+      this.listText="";
+    }
+    else{
+      this.listText="Recomendados"
+    }
+  }
    gotoEditPost(){
     this.router.navigate(['editPost/'+this.post.id])
   }

@@ -93,8 +93,11 @@ messageSentToChat="";
 
       this.gameService.subscribeToGame(this.game.id).subscribe(
         subscriptions=>{
+          this.algorithms.updateMap(this.game.genre.toString())
+          this.algorithms.displayMap();
+          this.algorithms.recommendedAlgorithm();
           this.gotoSuccessPage();
-          this.algorithms.recommendedAlgorithm(this.loginService.user);
+
         }
       )
 
@@ -112,6 +115,12 @@ messageSentToChat="";
 
       this.gameService.unSubscribeToGame(this.game.id).subscribe(
         subscriptions=>{
+          if(this.getSubscriptions==null){
+
+          }
+          this.algorithms.updateMapUnsub(this.game.genre.toString())
+            this.algorithms.displayMap();
+            this.algorithms.recommendedAlgorithm()
           this.gotoSuccessPage();
         }
       )

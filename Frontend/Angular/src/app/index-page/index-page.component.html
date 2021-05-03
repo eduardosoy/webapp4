@@ -30,23 +30,22 @@
         </div>
         <!-- /.col-lg-9 -->
         <div class="col-lg-3 col-md-4 col-sm-4">
-            <h2 class="my-4">whatlist</h2>
-            <div class="container" style="margin-right: 20px; margin-bottom: 20px;">
-                <!--
-        {{#selectedList}}
-        <div class="card h-100">
-          <a href="/gamePage/{{id}}"><img class="card-img-top" src="/gamePage/{{id}}/image" alt=""></a>
-          <div class="card-body">
-            <h4 class="card-title">
-              <a href="#" class="links"></a>
-            </h4>
-            <p class="card-text">{{gameTitle}}</p>
-          </div>
-          <div class="card-footer">
-            <small class="text-muted">{{averageScore}} ★</small>
-          </div>
-        </div>
-        {{/selectedList}}-->
+            <h2 class="my-4">{{listText}}</h2>
+            <div class="container" style="margin-right: 20px; margin-bottom: 20px;" *ngFor="let game of recommendedGames">
+              <div class="card">
+                <a (click)="gotoGamePage(game.id)"><img class="card-img-top" src="{{game.imagePath}}" alt=""></a>
+                <div class="card-body">
+                  <h6>
+                    <a (click)="gotoGamePage(game.id)" class="links">{{game.title}}</a>
+                  </h6>
+                  <p class="card-text">{{gameTitle}}</p>
+                </div>
+                <div class="card-footer">
+                  <small class="text-muted">{{averageScore}} ★</small>
+                </div>
+              </div>
+
+
 
             </div>
         </div>
