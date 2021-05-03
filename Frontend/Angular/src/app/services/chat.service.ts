@@ -5,7 +5,7 @@ import { Observable } from 'rxjs';
 import { catchError } from 'rxjs/operators';
 import { Chat } from '../models/chat.model';
 
-const BASE_URL: string = 'api/chats/';
+const BASE_URL: string = '/api/chats/';
 @Injectable({providedIn: 'root' })
   export class ChatService {
     constructor(private httpClient: HttpClient) { }
