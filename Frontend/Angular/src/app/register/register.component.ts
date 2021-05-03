@@ -13,7 +13,7 @@ export class RegisterComponent {
   
   constructor(private router: Router,public loginService: LoginService, activatedRoute:ActivatedRoute,public userService: UserService){ 
     let id=activatedRoute.snapshot.params['id'];
-    this.user={info:'',password:'',roles:['User'],myGames:[],imagePath:null};
+    this.user={info:'',password:'',roles:['USER'],myGames:[],imagePath:null};
   }
 
   createUser(){
