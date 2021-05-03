@@ -5,7 +5,7 @@ import { Observable } from 'rxjs';
 import { catchError } from 'rxjs/operators';
 import { DatePipe } from '@angular/common';
 
-const BASE_URL_POSTS: string = 'api/posts/';
+const BASE_URL_POSTS: string = '/api/posts/';
 @Injectable({providedIn:'root'})
 export class PostService{
   constructor(private httpClient: HttpClient,private datePipe:DatePipe) { }

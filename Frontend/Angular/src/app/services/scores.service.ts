@@ -3,7 +3,7 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { catchError } from 'rxjs/operators';
 
-const BASE_URL: string = 'api/games/';
+const BASE_URL: string = '/api/games/';
 @Injectable({providedIn:'root'})
 export class ScoresService{
 
