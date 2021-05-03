@@ -10,7 +10,7 @@ import { UserService } from '../services/user.service';
   templateUrl: './subscriptions.component.html'
 })
 export class SubscriptionsComponent implements	OnInit{
-  games: Game[]=[]
+  games: number[]=[]
   constructor(private router: Router,public loginService: LoginService,public userService: UserService, private gameService: GameService){}
 
   ngOnInit() {
@@ -20,19 +20,7 @@ export class SubscriptionsComponent implements	OnInit{
   getGames(){
     this.userService.getSubscriptions(this.loginService.user.id).subscribe(
       gameIds=>{
-        let auxArray=gameIds as number[]
-
-        for(var i of auxArray){
-          this.gameService.getGameById(i).subscribe(game=>{
-            let aux=game as Game
-
-
-            this.games.push(aux)
-
-          })
-        }
-
-
+        this.games=gameIds as number[]
       }
     )
 
