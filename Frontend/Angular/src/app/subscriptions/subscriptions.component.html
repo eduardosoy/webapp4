@@ -4,7 +4,7 @@
       <p></p>
       <h2>Suscripciones</h2>
       <table class="table table-striped">
-          <app-subs-button *ngFor="let game of games" [gameId]="game"></app-subs-button>
+          <app-subs-button *ngFor="let game of games" [game]="gameId"></app-subs-button>
       </table>
       <h1 *ngIf="isEmpty()" style="color: black;text-align: center;text-size-adjust: 20px; padding-top: 20px;">No hay
         subscripciones</h1>

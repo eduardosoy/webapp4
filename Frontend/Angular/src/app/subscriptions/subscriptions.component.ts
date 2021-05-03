@@ -23,8 +23,6 @@ export class SubscriptionsComponent implements	OnInit{
         this.games=gameIds as number[]
       }
     )
-
-
   }
 
   isEmpty(){

@@ -176,6 +176,9 @@ public class GameControllerRest {
         if (game.get() != null) {
  
             newGame.setId(id);
+            newGame.setChat(game.get().getChat());
+            newGame.setThePosts(game.get().getThePosts());
+            newGame.setMapScores(game.get().getMapScores());
             gameService.save(newGame);
  
             return ResponseEntity.ok(game.get());
