@@ -1,3 +1,4 @@
+import { AlgorithmsService } from './../services/algorithms.service';
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { User } from '../models/user.model';
@@ -14,7 +15,7 @@ export class ProfileComponent {
   @ViewChild("file")
   file: any;
 
-    constructor(private router: Router, activatedRoute:ActivatedRoute, private userService: UserService,public loginService: LoginService) {
+    constructor(private router: Router, activatedRoute:ActivatedRoute,private algoService:AlgorithmsService, private userService: UserService,public loginService: LoginService) {
       let id = activatedRoute.snapshot.params['id'];
       this.id = id;
     }
@@ -36,6 +37,8 @@ export class ProfileComponent {
         {this.router.navigate(['index']);}
       }
       logOut() {
+        this.algoService.arrayGames=[]
+        this.algoService.initialized=false;
         this.loginService.logOut();
         this.gotoIndex();
       }

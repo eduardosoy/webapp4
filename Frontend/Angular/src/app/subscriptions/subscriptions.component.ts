@@ -10,20 +10,33 @@ import { UserService } from '../services/user.service';
   templateUrl: './subscriptions.component.html'
 })
 export class SubscriptionsComponent implements	OnInit{
-  games: number[]=[];
-
+  games: Game[]=[]
   constructor(private router: Router,public loginService: LoginService,public userService: UserService, private gameService: GameService){}
 
   ngOnInit() {
     this.getGames();
   }
-  
+
   getGames(){
     this.userService.getSubscriptions(this.loginService.user.id).subscribe(
       gameIds=>{
-        this.games = gameIds as number[];
-      },
+        let auxArray=gameIds as number[]
+
+        for(var i of auxArray){
+          this.gameService.getGameById(i).subscribe(game=>{
+            let aux=game as Game
+
+
+            this.games.push(aux)
+
+          })
+        }
+
+
+      }
     )
+
+
   }
 
   isEmpty(){

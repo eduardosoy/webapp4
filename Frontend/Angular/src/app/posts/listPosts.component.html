@@ -1,6 +1,33 @@
 <div style="background-color: aliceblue;">
   <h1>{{fromGameTitle}}: lista {{typeString}}</h1>
-  <postButton *ngFor="let post of posts" [post]="post" (clicked)="gotoExpandedPost(post.id)"></postButton>
-</div>
+  <div class="row">
+    <div class="col-lg-8 col col-md-8 col-sm-8 ">
+      <postButton *ngFor="let post of posts" [post]="post" (clicked)="gotoExpandedPost(post.id)"></postButton>
+      <div class="col-lg-8 col-md-8 mb-8" style="align-items: center; width:100%">
+        <button class="btn btn-info" (click)="getMorePosts()">Mostrar Más</button>
+      </div>
+    </div>
+    <div class="col-lg-2 col-md-2 col-sm-2">
+      <h2 class="my-4">{{listText}}</h2>
+      <div class="container" style="margin-right: 20px; margin-bottom: 20px;" *ngFor="let game of recommendedGames">
+        <div class="card">
+          <a (click)="gotoGamePage(game.id)"><img class="card-img-top" src="{{game.imagePath}}" alt=""></a>
+          <div class="card-body">
+            <h6 class="card-title">
+              <a (click)="gotoGamePage(game.id)" class="links">{{game.title}}</a>
+            </h6>
+            <p class="card-text">{{gameTitle}}</p>
+          </div>
+          <div class="card-footer">
+            <small class="text-muted">{{averageScore}} ★</small>
+          </div>
+        </div>
 
-<p><button (click)="gotoIndex()">ir a Index</button></p>
+
+
+      </div>
+    </div>
+  </div>
+
+
+</div>

@@ -9,45 +9,57 @@ import { Observable } from 'rxjs';
 import { catchError } from 'rxjs/operators';
 import { LiteralMapEntry } from '@angular/compiler/src/output/output_ast';
 import { User } from '../models/user.model';
+import { Genre } from '../enums/Genre';
 
 @Injectable({providedIn:'root'})
 export class AlgorithmsService{
-  constructor(private httpClient: HttpClient,private loginService:LoginService,private userService:UserService,private gameService: GameService) { }
+  arrayGames:Game[]=[]
+  initialized:boolean=false;
+  amountOfGamesWithGenre:Map<string,number>=new Map<string,number>();
+  constructor(private httpClient: HttpClient,private gameService: GameService,private loginService:LoginService,private userService:UserService) {
 
-  recommendedAlgorithm(user:User){
-    let amountOfGamesWithGenre= new Map();
-    Object.values(Genres).forEach(genre =>
-        amountOfGamesWithGenre.set(genre,0)
-    );
-    let myGames;
-    this.userService.getSubscriptions(this.loginService.user.id).subscribe(
-      games=>{
-        myGames = games as number[];
-      }
-    )
-    console.log(myGames)
-    myGames.forEach(game =>{
-      //getgamebyid por parametro game y get genre,get entrada en el mapa del genre y sumarle 1
-      this.gameService.getGameById(game).subscribe(
-        data =>{
-          let game=data as Game;
-          amountOfGamesWithGenre.set(game.genre,amountOfGamesWithGenre.get(game.genre)+1);
-          console.log(amountOfGamesWithGenre.get(game.genre))
-        }
-      )
+   }
+  initializeMap(){
+    this.amountOfGamesWithGenre.set("Horror",0);
+    this.amountOfGamesWithGenre.set("Action",0);
+    this.amountOfGamesWithGenre.set("Shooter",0);
+    this.amountOfGamesWithGenre.set("RPG",0);
+    this.amountOfGamesWithGenre.set("Platformer",0);
+    this.amountOfGamesWithGenre.set("Sports",0);
+    this.amountOfGamesWithGenre.set("Narrative",0);
+    this.amountOfGamesWithGenre.set("Puzzles",0);
+    this.arrayGames=[]
+    this.initialized=true
+  }
+  updateMap(key:string){
+    this.amountOfGamesWithGenre.set(key,this.amountOfGamesWithGenre.get(key)+1);
+  }
+  updateMapUnsub(key:string){
+    this.amountOfGamesWithGenre.set(key,this.amountOfGamesWithGenre.get(key)-1);
+  }
+  displayMap(){
+    this.amountOfGamesWithGenre.forEach((value:number,key:string)=>{
+      console.log("la llave "+key+" tiene asociado el valor "+value);
     })
-    //encontrar entrada mayor y devolver el genre.
   }
-  doAverageScore(scores:Map<number,number>){
-    let aux=0.0;
-    scores.forEach(score =>
-      aux+=score
-      );
-      aux = aux/(scores.size);
-      aux = aux*10;
-      aux = Math.round(aux);
-      aux = aux/10;
-      return aux;
+  recommendedAlgorithm(){
+    if(!this.loginService.isLogged){
+      this.arrayGames=[];
+    }
+    else{
+      let auxCont=0;
+      let selectedGenre:string;
+      this.amountOfGamesWithGenre.forEach((value:number,key:string)=>{
+          if(this.amountOfGamesWithGenre.get(key)>auxCont){
+            auxCont=this.amountOfGamesWithGenre.get(key);
+            selectedGenre=key;
+          }
+      })
+      this.gameService.getGamesByGenre(selectedGenre).subscribe(games=>{
+        this.arrayGames=games as Game[];
+      })
+
   }
+}
 
 }
