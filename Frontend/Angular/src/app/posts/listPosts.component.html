@@ -3,7 +3,7 @@
   <div class="row">
     <div class="col-lg-8 col col-md-8 col-sm-8 ">
       <postButton *ngFor="let post of posts" [post]="post" (clicked)="gotoExpandedPost(post.id)"></postButton>
-      <div class="col-lg-8 col-md-8 mb-8" style="align-items: center; width:100%">
+      <div class="col-lg-8 col-md-8 mb-8" *ngIf="canLoadMore" style="align-items: center; width:100%">
         <button class="btn btn-info" (click)="getMorePosts()">Mostrar Más</button>
       </div>
     </div>
