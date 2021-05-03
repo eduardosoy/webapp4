@@ -1,3 +1,4 @@
+import { ErrorComponent } from './error/error.component';
 import { GameListComponent } from './adminUpdates/gameList.component';
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
@@ -30,9 +31,9 @@ import { EditGameComponent } from './adminUpdates/editGame/editGame.component';
 @NgModule({
   declarations: [AppComponent,HeaderComponent,FooterComponent, GamePageComponent, IndexPageComponent,
     GameStatisticsComponent, CreatePostComponent ,ListPostsComponent,  ExpandedPostComponent,
-    PostButtonComponent, EditPostComponent, LoginComponent, RegisterComponent, 
+    PostButtonComponent, EditPostComponent, LoginComponent, RegisterComponent,
     ProfileComponent,AdminUpdatesComponent, SuccessPageComponent,GameListComponent, SubscriptionsComponent, SubsButtonComponent,
-    NewGameComponent,EditGameComponent],
+    NewGameComponent,EditGameComponent,ErrorComponent],
   imports: [BrowserModule, FormsModule, HttpClientModule, routing],
   providers: [DatePipe],
   bootstrap: [AppComponent]

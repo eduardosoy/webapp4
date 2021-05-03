@@ -20,7 +20,7 @@
         </div>
         <div id="loadZone"></div>
         <div class="row">
-          <div class="col-lg-12 col-md-12 mb-12" style="align-items: center; width:100%">
+          <div class="col-lg-12 col-md-12 mb-12" style="align-items: center; width:100%" *ngIf="canLoadMore">
             <div class="card-body">
               <div class="card h-100">
                   <button class="btn btn-info" (click)="getMoreGames()">Mostrar Más</button>

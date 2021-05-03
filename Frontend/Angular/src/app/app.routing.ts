@@ -1,3 +1,4 @@
+import { ErrorComponent } from './error/error.component';
 import { GameListComponent } from './adminUpdates/gameList.component';
 import { Routes, RouterModule } from '@angular/router';
 import { GamePageComponent } from './game-page/game-page.component';
@@ -36,7 +37,8 @@ const appRoutes = [
     { path: 'register',component:RegisterComponent},
     { path: 'profile/:id',component:ProfileComponent},
     { path: 'successPage',component:SuccessPageComponent},
-    { path: 'subscriptions',component:SubscriptionsComponent}
+    { path: 'subscriptions',component:SubscriptionsComponent},
+    { path: 'errorPage',component:ErrorComponent}
 ];
 
 export const routing = RouterModule.forRoot(appRoutes);

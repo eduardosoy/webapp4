@@ -20,6 +20,7 @@ export class ListPostsComponent{
   id:string
   theType:string
   numPage:string;
+  canLoadMore=true;
   recommendedGames:Game[]=[]
   constructor(private router: Router, activatedRoute:ActivatedRoute,private pService:PostService,private gameService: GameService,private algoServ:AlgorithmsService) {
     let id = activatedRoute.snapshot.queryParams['gameID']
@@ -59,18 +60,22 @@ export class ListPostsComponent{
   gotoExpandedPost(theID:number){
     this.router.navigate(['listPosts/'+theID])
   }
-  gotoIndex() {this.router.navigate(['index'])}
+
   getMorePosts(){
     let aux=parseInt(this.numPage)+1;
     this.numPage=aux.toString();
     this.pService.getPostsFromGame(this.id,this.theType,aux.toString()).subscribe(
       posts=>{
+        this.canLoadMore=true;
         let aux=posts as Post[]
         aux.forEach(post=>{
           this.posts.push(post)
         })
 
       },
+      error=>{
+        this.canLoadMore=false
+      }
     )
   }
 }
