@@ -14,13 +14,15 @@ export class SubsButtonComponent {
 	@Input()
 	gameId: number;
 
-	constructor(private router: Router, public gameService: GameService, public loginService: LoginService) {
+	ngOnInit() {
 		this.gameService.getGameById(this.gameId).subscribe(
 			game => {
 				this.game = game as Game;
 			}
 		)
 	}
+
+	constructor(private router: Router, public gameService: GameService, public loginService: LoginService) {}
 
 	unSubscribe(id: number) {
 
