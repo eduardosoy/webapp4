@@ -21,10 +21,12 @@ export class ExpandedPostComponent{
     this.pService.getPostByID(id).subscribe(
       post=>{
         this.post=post as Post;
+      },
+      error=>{
+        this.router.navigate(['errorPage']);
       }
     )
-    this.logged=
-    this.loginService.isAdmin();
+    this.logged=this.loginService.isAdmin();
    }
    ngOnInit(){
     this.getRecommendedGames();

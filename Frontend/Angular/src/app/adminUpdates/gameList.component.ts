@@ -11,6 +11,7 @@ export class GameListComponent{
   games:Game[];
   filters:boolean[]=[false,false,false,false,false,false,false,false];
   filtersString:string[]=["Horror","Shooter","Action","Platformer","Sports","Puzzles","Narrative","RPG"]
+  canLoadMore=false;
   constructor(private router: Router, private gameService: GameService){}
   numPage=0;
   ngOnInit() {
@@ -47,10 +48,14 @@ export class GameListComponent{
     finalFilters.forEach(value =>{
       this.gameService.getGamesByGenre(value).subscribe(
         data =>{
+          this.canLoadMore=true;
           let cosa =data as Game[]
           cosa.forEach(game =>{
             auxArray.push(game)
           })
+        },
+        error=>{
+          this.canLoadMore=false;
         }
       )
     });
