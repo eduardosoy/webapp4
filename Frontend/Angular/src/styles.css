@@ -163,9 +163,7 @@ body {
   ::-webkit-scrollbar-thumb:hover {
     background: #555
   }
-  body {
-    background-image: url("/assets/back.jpg");
-  }
+
   .links{
     color:black
   }
