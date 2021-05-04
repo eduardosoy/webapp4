@@ -362,5 +362,100 @@ DISCLAIMER: Due to a bug with Github, I haven't been able to push anything to th
 
 # OpenApi
 
-## Enlace a la especificación OpenApi: https://raw.githack.com/CodeURJC-DAW-2020-21/webapp4/main/api-docs/api-docs.html
+## Link to the especification of the OpenApi: https://raw.githack.com/CodeURJC-DAW-2020-21/webapp4/main/api-docs/api-docs.html
 
+# Phase 4
+
+## Build instructions
+In a Ubuntu system With docker installed and cloned this repository, execute the following commands:
+1. With docker and docker-compose installed, execute permissions are given to the create_image.sh file inside the docker folder (with the command chmod + x create_image.sh).
+2. The create_image.sh command is executed
+3. The image is pushed to the indicated dockerhub repository.
+4. The docker-compose up command is run to run the app
+
+To construct a new image it´s can use the script with name "create_image.sh"
+
+# Team participation
+
+ ## Eduardo Sierra Martin
+
+### Completed tasks description
+organization of group tasks, as well as the automation of the creation of images and compilation with a script and everything corresponding to administrator tasks.
+
+Monitor the visual part of the web application
+
+### Focussed files:
+ | Number | Description | Focused on Files |
+ | ------ | ------------| -----------------|
+ | #1 | dockerfile image creation script| [create_image.sh](https://github.com/CodeURJC-DAW-2020-21/webapp4/blob/e976e83d69ed11980846c702b1ec29f61b015fdd/docker/create_image.sh)|
+ | #2 | visual component of administrator options| [adminUpdates.component.html](https://github.com/CodeURJC-DAW-2020-21/webapp4/blob/e976e83d69ed11980846c702b1ec29f61b015fdd/Frontend/Angular/src/app/adminUpdates/adminUpdates.component.html) |
+ | #3 | logical component that allow to admisitrator create, delete and update games | [adminUpdates.component.ts](https://github.com/CodeURJC-DAW-2020-21/webapp4/blob/e976e83d69ed11980846c702b1ec29f61b015fdd/Frontend/Angular/src/app/adminUpdates/adminUpdates.component.ts) |
+ | #4 | logical component that contains how a game its created| [newGame.component.ts](https://github.com/CodeURJC-DAW-2020-21/webapp4/blob/e976e83d69ed11980846c702b1ec29f61b015fdd/Frontend/Angular/src/app/adminUpdates/newGame/newGame.component.ts) |
+ | #5 | its the html that contains the text boxes where its can input the data of new games| [newGame.component.html](https://github.com/CodeURJC-DAW-2020-21/webapp4/blob/e976e83d69ed11980846c702b1ec29f61b015fdd/Frontend/Angular/src/app/adminUpdates/newGame/newGame.component.html) |
+
+ 
+
+### Relevenats commits:
+ | Number | Description | Commit |
+ | ------ | ----------- | ------ |
+ | #1 | the first time the new web page can be accessed by putting /new in front| [commit](https://github.com/CodeURJC-DAW-2020-21/webapp4/commit/e994c9a349f815806acd34bb3c80cc8ac223ff71)|
+ | #2 | first version of a dockerizable app with node.js| [commit](https://github.com/CodeURJC-DAW-2020-21/webapp4/commit/a1f08a24caac1b03dddac9e56ea28b5301192b3d)|
+ | #3 | admins can now update, load and delete games| [commit](https://github.com/CodeURJC-DAW-2020-21/webapp4/commit/6de62c91b9b8bcc14f9a18e9ed47793b8aedfd35)|
+ | #4 | page with /new now are redirect to index  | [commit](https://github.com/CodeURJC-DAW-2020-21/webapp4/commit/5af878aa4501b55fb2126ad4011f366a585f3826)|
+ | #5 | a lot of visual changes | [commit](https://github.com/CodeURJC-DAW-2020-21/webapp4/commit/a5da98e60e74800e8d0d9ad9615fc462dd339ded)|
+
+ ## Carlos Javier Hervás Ledesma
+
+### Completed tasks description
+Implementation of posts functions, algorithm and game list with filters in new application.
+
+
+### Focussed files:
+ | Number | Description | Focused on Files |
+ | ------ | ------------| -----------------|
+ | #1 | Service for posts| [post.service.ts](https://github.com/CodeURJC-DAW-2020-21/webapp4/blob/main/Frontend/Angular/src/app/services/post.service.ts)|
+ | #2 | List of posts (ts and HTML)| [listPosts.component.ts](https://github.com/CodeURJC-DAW-2020-21/webapp4/blob/main/Frontend/Angular/src/app/posts/listPosts.component.ts) |
+ | #3 | Individual post (ts and HTML) | [expandedPost.component.ts](https://github.com/CodeURJC-DAW-2020-21/webapp4/blob/main/Frontend/Angular/src/app/posts/expandedPost.component.ts) |
+ | #4 | Algorithm Service| [algoritms.service.ts](https://github.com/CodeURJC-DAW-2020-21/webapp4/blob/main/Frontend/Angular/src/app/services/algorithms.service.ts) |
+ | #5 | Game list component (ts and HTML)| [gameList.component.ts](https://github.com/CodeURJC-DAW-2020-21/webapp4/blob/main/Frontend/Angular/src/app/adminUpdates/gameList.component.ts) |
+
+ 
+
+### Relevenats commits:
+ | Number | Description | Commit |
+ | ------ | ----------- | ------ |
+ | #1 | Recommended algorithm implementation and pagination in post list| [commit](https://github.com/CodeURJC-DAW-2020-21/webapp4/commit/e9acdd8eaebc6c94c43747bee05cf701d8a5a095)|
+ | #2 | Upload and edit posts with image implementation and fixes | [commit](https://github.com/CodeURJC-DAW-2020-21/webapp4/commit/0d558020cc8a3f3f22e4ddd7dd7fa0bae9c9ff92)|
+ | #3 | Game list page with filters| [commit](https://github.com/CodeURJC-DAW-2020-21/webapp4/commit/5ca631ad83949c555b29cdf2bee9412d31c00ba2)|
+ | #4 | Create and edit post (no image yet) | [commit](https://github.com/CodeURJC-DAW-2020-21/webapp4/commit/db6ac76c0bd99a3160b357e9dffd8f2fa91ec1c2)|
+ | #5 | First implementations of algorithms and petitions | [commit](https://github.com/CodeURJC-DAW-2020-21/webapp4/commit/80364108b5313ad1109f579b0c394764cd067199)|
+
+## Enrique Carmona Blázquez
+
+### Completed tasks description
+Implementation of user functions, fixing error and login and register functions
+
+
+### Focussed files:
+ | Number | Description | Focused on Files |
+ | ------ | ------------| -----------------|
+ | #1 | Service for users| [user.service.ts](https://github.com/CodeURJC-DAW-2020-21/webapp4/blob/main/Frontend/Angular/src/app/services/user.service.ts)|
+ | #2 | List of subscriptions (ts and HTML)| [subscriptions.component.ts](https://github.com/CodeURJC-DAW-2020-21/webapp4/blob/main/Frontend/Angular/src/app/susbcriptions/subscriptions.component.ts) |
+ | #3 | Profile of user (ts and HTML) | [profile.component.ts](https://github.com/CodeURJC-DAW-2020-21/webapp4/blob/main/Frontend/Angular/src/app/profile/profile.component.ts) |
+ | #4 | Register | [register.component.ts](https://github.com/CodeURJC-DAW-2020-21/webapp4/blob/main/Frontend/Angular/src/app/register/register.component.ts) |
+ | #5 | Login service (ts and HTML)| [login.service.ts](https://github.com/CodeURJC-DAW-2020-21/webapp4/blob/main/Frontend/Angular/src/app/adminUpdates/login.service.ts) |
+
+ 
+
+### Relevenats commits:
+ | Number | Description | Commit |
+ | ------ | ----------- | ------ |
+ | #1 | Recommended algorithm implementation and pagination in post list| [commit](https://github.com/CodeURJC-DAW-2020-21/webapp4/commit/e9acdd8eaebc6c94c43747bee05cf701d8a5a095)|
+ | #2 | Upload and edit posts with image implementation and fixes | [commit](https://github.com/CodeURJC-DAW-2020-21/webapp4/commit/0d558020cc8a3f3f22e4ddd7dd7fa0bae9c9ff92)|
+ | #3 | Game list page with filters| [commit](https://github.com/CodeURJC-DAW-2020-21/webapp4/commit/5ca631ad83949c555b29cdf2bee9412d31c00ba2)|
+ | #4 | Create and edit post (no image yet) | [commit](https://github.com/CodeURJC-DAW-2020-21/webapp4/commit/db6ac76c0bd99a3160b357e9dffd8f2fa91ec1c2)|
+ | #5 | First implementations of algorithms and petitions | [commit](https://github.com/CodeURJC-DAW-2020-21/webapp4/commit/80364108b5313ad1109f579b0c394764cd067199)|
+
+# Link to a video explainig this phase
+
+## Link to the video: https://www.youtube.com/watch?v=Rtj_fL8uzVU
