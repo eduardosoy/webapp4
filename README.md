@@ -1,5 +1,9 @@
 # webapp4
 
+# Link to a video explainig the app
+
+## Link to the video: https://www.youtube.com/watch?v=Rtj_fL8uzVU
+
 # Phase 0
 
 ## Web name
@@ -456,6 +460,26 @@ Implementation of user functions, fixing error and login and register functions
  | #4 | Create and edit post (no image yet) | [commit](https://github.com/CodeURJC-DAW-2020-21/webapp4/commit/db6ac76c0bd99a3160b357e9dffd8f2fa91ec1c2)|
  | #5 | First implementations of algorithms and petitions | [commit](https://github.com/CodeURJC-DAW-2020-21/webapp4/commit/80364108b5313ad1109f579b0c394764cd067199)|
 
-# Link to a video explainig this phase
+## Gabriel Fuentes Villasevil
 
-## Link to the video: https://www.youtube.com/watch?v=Rtj_fL8uzVU
+### Completed tasks description
+
+Creation and implementation of routing, gamePage and gameStatistics components, fix errors all arround the app components, make that all in the game page works as in the second phase, creation of SPA class Diagram and help the other team mates. 
+
+### Focussed files:
+ | Number | Description | Focused on Files |
+ | ------ | ------------| -----------------|
+ | #1 | The Chat | [chat.service.ts](https://github.com/CodeURJC-DAW-2020-21/webapp4/blob/667cdd716f69d178a0b0d22459f99d0a047e5223/Frontend/Angular/src/app/services/chat.service.ts)|
+ | #2 | The game page | [game-page.component.ts](https://github.com/CodeURJC-DAW-2020-21/webapp4/blob/667cdd716f69d178a0b0d22459f99d0a047e5223/Frontend/Angular/src/app/game-page/game-page.component.ts) |
+ | #3 | The statistics | [game-statistics.component.ts](https://github.com/CodeURJC-DAW-2020-21/webapp4/blob/667cdd716f69d178a0b0d22459f99d0a047e5223/Frontend/Angular/src/app/game-statistics/game-statistics.component.ts) |
+ | #4 | The routing | [app.routing.ts](https://github.com/CodeURJC-DAW-2020-21/webapp4/blob/667cdd716f69d178a0b0d22459f99d0a047e5223/Frontend/Angular/src/app/app.routing.ts) |
+ | #5 | The success page | [Success-page.component.html](https://github.com/CodeURJC-DAW-2020-21/webapp4/blob/667cdd716f69d178a0b0d22459f99d0a047e5223/Frontend/Angular/src/app/success-page/success-page.component.html) |
+
+### Relevants commits:
+ | Number | Description | Focused on Files |
+ | ------ | ------------| -----------------|
+ | #1 | Creation and implementation of routing (navigation)| [Commit](https://github.com/CodeURJC-DAW-2020-21/webapp4/commit/220824ffa4d7dfa50aa84ca95120624f06203629)|
+ | #2 | Creation and implementation of Chat.service (the chat)| [Commit](https://github.com/CodeURJC-DAW-2020-21/webapp4/commit/17229781f31891f0bcfd5f74e1d9bc4348fade51) |
+ | #3 | Creation and implementation of gameStatistics.component (vote games)| [Commit](https://github.com/CodeURJC-DAW-2020-21/webapp4/commit/a5a760c62f491fececba7ffeaecc8a4dee1d93e1) |
+ | #4 | Creation and implementation of GamePage.component (the individual game)| [Commit](https://github.com/CodeURJC-DAW-2020-21/webapp4/commit/ee3bf7c3e078f95d4cbe46587b78f759523bb3cd) |
+ | #5 | Fix of different errors | [Commit](https://github.com/CodeURJC-DAW-2020-21/webapp4/commit/7c2e7e4a475c87d480b5840e4ab2d89c6d7a3b53) |
