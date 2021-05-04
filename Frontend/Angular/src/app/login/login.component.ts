@@ -10,7 +10,6 @@ import { UserService } from '../services/user.service';
 })
 export class LoginComponent {
   user: User;
-  file: any;
 
   constructor(public loginService: LoginService,private router: Router, private userService: UserService) { }
 
@@ -23,16 +22,6 @@ export class LoginComponent {
     this.user = this.loginService.user;
 
     this.router.navigate(['index']);
-  }
-
-  uploadUserImage(){
-    const image=this.file.nativeElement.files[0];
-    if(image){
-      let formData=new FormData();
-      formData.append("imageFile",image);
-      this.userService.setUserImage(this.user,formData);
-    }
-    this.router.navigate(['successPage']);
   }
 
 }

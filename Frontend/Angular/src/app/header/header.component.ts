@@ -10,7 +10,7 @@ import { UserService } from '../services/user.service';
 })
 export class HeaderComponent {
 
-  imgUrl = "assets/logo.png"
+  imgUrl = "assets/logo.png";
 
   constructor(private router: Router,public loginService: LoginService,public userService: UserService){ }
 

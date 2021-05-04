@@ -21,10 +21,10 @@ export class RegisterComponent {
     this.userService.createNewUser(this.user).subscribe(data => {
       this.user = data as User;
       this.uploadUserImage();
-      this.router.navigate(['successPage']);
     },
     error => console.error('Error al crear el post '+error)
     );
+    this.router.navigate(['successPage']);
   }
 
   uploadUserImage(){
@@ -34,7 +34,6 @@ export class RegisterComponent {
       formData.append("imageFile",image);
       this.userService.setUserImage(this.user,formData);
     }
-    this.router.navigate(['successPage']);
   }
 
 }

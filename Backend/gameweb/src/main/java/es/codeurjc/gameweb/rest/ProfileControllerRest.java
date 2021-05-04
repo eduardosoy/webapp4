@@ -80,12 +80,14 @@ public class ProfileControllerRest {
     public ResponseEntity<User> createUser(@RequestBody User user) throws IOException{
         user.setPassword(passwordEncoder.encode(user.getPassword()));
         user.setImage(true);
+        Resource image = (Resource) new ClassPathResource("/sample_images/user-image-default.jpg");
+        user.setImageFile(BlobProxy.generateProxy(image.getInputStream(), image.contentLength()));
         ArrayList<String> roles = new ArrayList<>();
         roles.add("USER");
         user.setRoles(roles);
-        String imgPath="https://localhost:8443/api/profiles/0/images";
-        user.setImagePath(imgPath);
-        userService.save(user);     
+        userService.save(user);
+        String imgPath="https://localhost:8443/api/profiles/"+user.getId()+"/images";
+        user.setImagePath(imgPath);    
         URI location = fromCurrentRequest().path("/{id}").buildAndExpand(user.getId()).toUri();
         return ResponseEntity.created(location).body(user);
     }

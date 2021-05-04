@@ -27,6 +27,12 @@ export class UserService {
     ) as Observable<User>;
   }
 
+  editUser(user: User) {
+    return this.httpClient.put(BASE_URL + user.id,user).pipe(
+      catchError(error => this.handleError(error))
+    ) as Observable<User>;
+  }
+
   getSubscriptions(id:number): Observable<number[]> {
     return this.httpClient.get(BASE_URL + id + '/subscriptions').pipe(
       catchError(error => this.handleError(error))
@@ -34,7 +40,7 @@ export class UserService {
   }
 
   setUserImage(user:User, formData:FormData){
-    return this.httpClient.post(BASE_URL +user.id+"/images",formData).pipe(
+    return this.httpClient.post(BASE_URL +user.id+ "/images",formData).pipe(
       catchError(error => this.handleError(error))
     );
   }
