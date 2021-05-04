@@ -379,6 +379,11 @@ In a Ubuntu system With docker installed and cloned this repository, execute the
 
 To construct a new image it´s can use the script with name "create_image.sh"
 
+## SPA class diagram
+
+![](Capturas%204DGames/Diagrama_de_clases_DAW_SPA.png)
+
+
 # Team participation
 
  ## Eduardo Sierra Martin
@@ -454,7 +459,7 @@ Implementation of user functions, fixing error and login and register functions
 ### Relevenats commits:
  | Number | Description | Commit |
  | ------ | ----------- | ------ |
- | #1 | Recommended algorithm implementation and pagination in post list| [commit](https://github.com/CodeURJC-DAW-2020-21/webapp4/commit/e9acdd8eaebc6c94c43747bee05cf701d8a5a095)|
+ | #1 | Fixing errors in the page| [commit](https://github.com/CodeURJC-DAW-2020-21/webapp4/tree/389ca365a15d0fdf0da22708eeec11a2276e17b2)|
  | #2 | Upload and edit posts with image implementation and fixes | [commit](https://github.com/CodeURJC-DAW-2020-21/webapp4/commit/0d558020cc8a3f3f22e4ddd7dd7fa0bae9c9ff92)|
  | #3 | Game list page with filters| [commit](https://github.com/CodeURJC-DAW-2020-21/webapp4/commit/5ca631ad83949c555b29cdf2bee9412d31c00ba2)|
  | #4 | Create and edit post (no image yet) | [commit](https://github.com/CodeURJC-DAW-2020-21/webapp4/commit/db6ac76c0bd99a3160b357e9dffd8f2fa91ec1c2)|
