@@ -381,7 +381,8 @@ To construct a new image it´s can use the script with name "create_image.sh"
 
 ## SPA class diagram
 
-![](Capturas%204DGames/Diagrama%20de%20clases%20DAW%20SPA.png)
+![](Capturas%204DGames/Diagrama_de_clases_DAW_SPA.png)
+
 
 # Team participation
 
