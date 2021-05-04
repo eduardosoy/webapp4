@@ -379,6 +379,10 @@ In a Ubuntu system With docker installed and cloned this repository, execute the
 
 To construct a new image it´s can use the script with name "create_image.sh"
 
+## SPA class diagram
+
+![](Capturas%204DGames/Diagrama%20de%20clases%20DAW%20SPA.png)
+
 # Team participation
 
  ## Eduardo Sierra Martin
