@@ -16,7 +16,7 @@
                         <a (click)="gotoGamePage(game.id)"><img class="card-img-top" src="{{game.imagePath}}" alt=""></a>
                         <div class="card-body">
                             <h6 class="card-title">
-                                <a href="/gamePage/" class="links">{{game.gameTitle}}</a>
+                                <a (click)="gotoGamePage(game.id)" class="links">{{game.gameTitle}}</a>
                             </h6>
                             <!--<p class="card-text">descripcion del juego</p>-->
                         </div>
@@ -38,7 +38,6 @@
                   <h6>
                     <a (click)="gotoGamePage(game.id)" class="links">{{game.gameTitle}}</a>
                   </h6>
-                  <p class="card-text">{{game.gameTitle}}</p>
                 </div>
                 <div class="card-footer">
                   <small class="text-muted">{{game.averageScore}} ★</small>
