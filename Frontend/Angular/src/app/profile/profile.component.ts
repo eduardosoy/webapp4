@@ -10,53 +10,55 @@ import { UserService } from '../services/user.service';
   templateUrl: './profile.component.html'
 })
 export class ProfileComponent {
-  user:User;
-  id:number;
+  user: User;
+  id: number;
   @ViewChild("file")
   file: any;
 
-    constructor(private router: Router, activatedRoute:ActivatedRoute,private algoService:AlgorithmsService, private userService: UserService,public loginService: LoginService) {
-      let id = activatedRoute.snapshot.params['id'];
-      this.id = id;
-    }
-    ngOnInit(): void {
-      this.getUser();
-    }
-      getUser(){
-        this.userService.getUserById(this.id).subscribe(
-          user => {
-            this.user = user as User;
-          }
-        );
-      }
+  constructor(private router: Router, activatedRoute: ActivatedRoute, private algoService: AlgorithmsService, private userService: UserService, public loginService: LoginService) {
+    let id = activatedRoute.snapshot.params['id'];
+    this.id = id;
+  }
 
-      gotoSubscriptions(){
-        {this.router.navigate(['subscriptions']);}
+  ngOnInit(): void {
+    this.getUser();
+  }
+  getUser() {
+    this.userService.getUserById(this.id).subscribe(
+      user => {
+        this.user = user as User;
       }
-      gotoIndex(){
-        {this.router.navigate(['index']);}
-      }
-      logOut() {
-        this.algoService.arrayGames=[]
-        this.algoService.initialized=false;
-        this.loginService.logOut();
-        this.gotoIndex();
-      }
-      editUser(){
-        this.userService.createNewUser(this.user).subscribe(data => {
-          this.router.navigate(['successPage']);
-        },
-        error => console.error('Error al crear el post '+error)
-        );
-      }
+    );
+  }
 
-      uploadUserImage(){
-        const image=this.file.nativeElement.files[0];
-        if(image){
-          let formData=new FormData();
-          formData.append("imageFile",image);
-          this.userService.setUserImage(this.user,formData);
-        }
-        this.router.navigate(['successPage']);
-      }
+  gotoSubscriptions() {
+    { this.router.navigate(['subscriptions']); }
+  }
+  gotoIndex() {
+    { this.router.navigate(['index']); }
+  }
+  logOut() {
+    this.algoService.arrayGames = []
+    this.algoService.initialized = false;
+    this.loginService.logOut();
+    this.gotoIndex();
+  }
+  editUser() {
+    this.userService.editUser(this.user).subscribe(data => {
+      this.router.navigate(['successPage']);
+    },
+      error => console.error('Error al crear el post ' + error)
+    );
+  }
+
+  uploadUserImage() {
+    const image = this.file.nativeElement.files[0];
+    if (image) {
+      let formData = new FormData();
+      formData.append("imageFile", image);
+      this.userService.setUserImage(this.user, formData).subscribe(
+        _ => this.router.navigate(['successPage'])
+      )
+    }
+  }
 }
